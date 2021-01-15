@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <div>
-            <div>Hello world!</div>
+            <div className='font-weight-500 text-teal-500'>Hello world!</div>
             {submissions.map((s: BoatNode) => (
                 <div>boatsName = {s.boatsName}</div>
             ))}
