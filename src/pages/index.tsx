@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Layout from '../components/layout';
 
 export default function Home() {
     const { allStrapiVideoSubmission } = useStaticQuery(query);
@@ -7,12 +8,11 @@ export default function Home() {
     const submissions = edges.map((e: Edge) => e.node);
 
     return (
-        <div>
-            <div className='font-weight-500 text-teal-500'>Hello world!</div>
+        <Layout url='rules'>
             {submissions.map((s: BoatNode) => (
                 <div>boatsName = {s.boatsName}</div>
             ))}
-        </div>
+        </Layout>
     );
 }
 

@@ -1,2 +1,2 @@
-import 'typeface-libre-franklin';
+import 'typeface-quicksand';
 import './src/styles/tailwind.out.css';
