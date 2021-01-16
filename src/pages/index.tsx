@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/layout';
+import VideoCard from '../components/video-card';
 
 export default function Home() {
     const { allStrapiVideoSubmission } = useStaticQuery(query);
@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             {submissions.map((s: BoatNode) => (
-                <div key={s.youtubeVideoId}>boatsName = {s.boatsName}</div>
+                <VideoCard key={s.youtubeVideoId} boatNode={s} />
             ))}
         </>
     );
