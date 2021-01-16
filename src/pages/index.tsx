@@ -8,7 +8,7 @@ export default function Home() {
     const submissions = edges.map((e: Edge) => e.node);
 
     return (
-        <Layout url='rules'>
+        <Layout url='/'>
             {submissions.map((s: BoatNode) => (
                 <div>boatsName = {s.boatsName}</div>
             ))}

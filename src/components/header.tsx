@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 
 /*
@@ -15,6 +16,11 @@ interface Props {
     url: string;
 }
 function Header(props: Props) {
+    const rulesPage = props.url === '/rules';
+
+    const linkColors =
+        'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
+
     return (
         <div
             className={
@@ -22,36 +28,42 @@ function Header(props: Props) {
             }
         >
             <div className={'flex flex-row items-center justify-center w-1/2'}>
-                <div className='w-8 h-8 text-gray-400 transition-colors duration-100 cursor-pointer hover:text-red-400'>
-                    {I14Logo}
-                </div>
+                <Link to='/'>
+                    <div className={`w-8 h-8 ${linkColors}`}>{I14Logo}</div>
+                </Link>
                 <div className='self-stretch flex-grow' />
-                <div className='h-10 mr-1 text-3xl leading-10 text-gray-400 font-weight-700'>
+                <div className='h-10 mr-1 text-3xl leading-10 text-gray-600 font-weight-700'>
                     Tack & Gybe
                 </div>
             </div>
 
             <div className={'flex flex-row items-center justify-center w-1/2'}>
-                <div className='h-10 ml-1 text-3xl leading-10 text-gray-400 font-weight-700'>
-                    <span className='relative text-red-400'>
-                        <span
-                            className={`absolute top-0 left-0 ${
-                                props.url === '/rules' ? 'hidden' : ''
-                            }`}
-                        >
-                            Challenge
-                        </span>
-                        <span
-                            className={`absolute top-0 left-0 ${
-                                props.url === '/rules' ? '' : 'hidden'
-                            }`}
-                        >
-                            Rules
-                        </span>
+                <div className='relative h-10 ml-1 text-3xl leading-10 text-red-400 font-weight-700'>
+                    <span
+                        className={`absolute top-0 left-0 ${
+                            rulesPage ? 'hidden' : ''
+                        }`}
+                    >
+                        Challenge
+                    </span>
+                    <span
+                        className={`absolute top-0 left-0 ${
+                            rulesPage ? '' : 'hidden'
+                        }`}
+                    >
+                        Rules
                     </span>
                 </div>
                 <div className='self-stretch flex-grow' />
-                <div>Buttons</div>
+                <Link to={rulesPage ? '/' : '/rules'}>
+                    <div
+                        className={`px-2 py-1 text-md font-weight-500 ${linkColors}`}
+                    >
+                        {rulesPage
+                            ? 'Back to submissions'
+                            : 'How does it work?'}
+                    </div>
+                </Link>
             </div>
         </div>
     );
