@@ -40,15 +40,19 @@ function Header(props: Props) {
             <div className={'flex flex-row items-center justify-center w-1/2'}>
                 <div className='relative h-10 ml-1 text-3xl leading-10 text-red-400 font-weight-700'>
                     <span
-                        className={`absolute top-0 left-0 ${
-                            rulesPage ? 'hidden' : ''
+                        className={`transform absolute top-0 left-0 ${
+                            rulesPage
+                                ? '-translate-y-full opacity-20'
+                                : 'translate-y-0 opacity-100'
                         }`}
                     >
                         Challenge
                     </span>
                     <span
-                        className={`absolute top-0 left-0 ${
-                            rulesPage ? '' : 'hidden'
+                        className={`transform absolute top-0 left-0 ${
+                            rulesPage
+                                ? 'translate-y-0 opacity-100'
+                                : 'translate-y-full opacity-20'
                         }`}
                     >
                         Rules
