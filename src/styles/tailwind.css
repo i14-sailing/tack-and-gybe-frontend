@@ -127,3 +127,8 @@ main h2 {
     @apply text-center;
     @apply leading-tight;
 }
+
+blurred-image {
+    -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
+    filter: blur(4px);
+}
