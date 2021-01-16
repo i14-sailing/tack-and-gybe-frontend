@@ -32,27 +32,27 @@ function Header(props: Props) {
                     <div className={`w-8 h-8 ${linkColors}`}>{I14Logo}</div>
                 </Link>
                 <div className='self-stretch flex-grow' />
-                <div className='h-10 mr-1 text-3xl leading-10 text-gray-600 font-weight-700'>
+                <div className='h-8 mr-1 text-3xl leading-10 text-gray-600 font-weight-700'>
                     Tack & Gybe
                 </div>
             </div>
 
             <div className={'flex flex-row items-center justify-center w-1/2'}>
-                <div className='relative h-10 ml-1 text-3xl leading-10 text-red-400 font-weight-700'>
+                <div className='relative h-8 ml-1 text-3xl leading-10 text-red-400 font-weight-700'>
                     <span
-                        className={`transform absolute top-0 left-0 ${
+                        className={`transition-all duration-200 transform absolute top-0 left-0 ${
                             rulesPage
-                                ? '-translate-y-full opacity-20'
+                                ? '-translate-y-full opacity-0'
                                 : 'translate-y-0 opacity-100'
                         }`}
                     >
                         Challenge
                     </span>
                     <span
-                        className={`transform absolute top-0 left-0 ${
+                        className={`transition-all duration-200 transform absolute top-0 left-0 ${
                             rulesPage
                                 ? 'translate-y-0 opacity-100'
-                                : 'translate-y-full opacity-20'
+                                : 'translate-y-full opacity-0'
                         }`}
                     >
                         Rules

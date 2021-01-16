@@ -8,11 +8,11 @@ export default function Home() {
     const submissions = edges.map((e: Edge) => e.node);
 
     return (
-        <Layout url='/'>
+        <>
             {submissions.map((s: BoatNode) => (
-                <div>boatsName = {s.boatsName}</div>
+                <div key={s.youtubeVideoId}>boatsName = {s.boatsName}</div>
             ))}
-        </Layout>
+        </>
     );
 }
 
