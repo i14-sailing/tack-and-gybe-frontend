@@ -16,7 +16,7 @@ interface Props {
     url: string;
 }
 function Header(props: Props) {
-    const rulesPage = props.url === '/rules';
+    const rulesPage = props.url.includes('rules');
 
     const linkColors =
         'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';

@@ -49,8 +49,8 @@ export default function Home() {
                     <p>2. Upload that video to YouTube</p>
                     <p>
                         3. Send an email to ... and include the following
-                        details: Link to the video, start/end time, your boats
-                        name.
+                        details: Link to the video, start/end time (in the
+                        video), your boats name.
                     </p>
                 </div>
             </div>
