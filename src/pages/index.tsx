@@ -20,7 +20,16 @@ export default function Home() {
 
         return (
             <>
-                <div className='mx-auto mt-8 mb-32 w-25vw'>
+                <div
+                    className={
+                        'mx-auto w-full mt-4 mb-8 ' +
+                        'sm:w-65vw ' +
+                        'md:w-55vw ' +
+                        'lg:mb-16 lg:w-45vw ' +
+                        'xl:mt-6 xl:mb-24 xl:w-35vw ' +
+                        '2xl:mt-8 2xl:mb-32 2xl:w-30vw '
+                    }
+                >
                     {submissions.map((s: BoatNode, i: number) => (
                         <VideoCard
                             key={s.youtubeVideoId}

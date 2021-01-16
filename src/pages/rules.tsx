@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div className='flex flex-col items-center mt-8'>
             <div className='flex flex-row'>
-                <div className='flex flex-col mr-16 w-25vw'>
+                <div className='flex flex-col w-full md:w-1/2 md:pr-8'>
                     <h4 className='text-gray-800 font-weight-700'>
                         The Challenge
                     </h4>
@@ -26,18 +26,24 @@ export default function Home() {
                         not, but your weight must not be on the rack).
                     </p>
                 </div>
-                <img className='w-25vw' src={UndrawImageSanFran} />
+                <img
+                    className='hidden w-1/2 pl-8 my-auto h-80 md:block'
+                    src={UndrawImageSanFran}
+                />
             </div>
 
-            <p className='my-16'>
+            <p className='my-8 sm:my-12 md:my-16'>
                 You can choose the location, the conditions (at least a light
                 Doppelsteher) and your gear.
                 <img className='inline w-8 h-8 ml-1' src={WinkEmoji} />
             </p>
 
             <div className='flex flex-row'>
-                <img className='w-25vw' src={UndrawImageYoutube} />
-                <div className='flex flex-col ml-16 w-25vw'>
+                <img
+                    className='hidden w-1/2 pr-8 my-auto h-60 md:block'
+                    src={UndrawImageYoutube}
+                />
+                <div className='flex flex-col w-full mt-8 md:mt-0 md:w-1/2 md:pl-8'>
                     <h4 className='text-gray-800 font-weight-700'>
                         How do I Take Part?
                     </h4>
@@ -55,7 +61,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <p className='my-16'>
+            <p className='my-8 sm:my-12 md:my-16'>
                 Have fun!
                 <img className='inline w-8 h-8 ml-1' src={PartyEmoji} />
             </p>

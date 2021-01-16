@@ -6,7 +6,7 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: {
-        enabled: true,
+        enabled: false,
         content: [
             './src/**/*.js',
             './src/**/*.jsx',
@@ -49,10 +49,15 @@ module.exports = {
                  '40vw':  '40vw',
                  '45vw':  '45vw',
                  '50vw':  '50vw',
+                 '55vw':  '55vw',
                  '60vw':  '60vw',
+                 '65vw':  '65vw',
                  '70vw':  '70vw',
+                 '75vw':  '75vw',
                  '80vw':  '80vw',
+                 '85vw':  '85vw',
                  '90vw':  '90vw',
+                 '95vw':  '95vw',
                 '100vw': '100vw',
 
                  '12':  '3.0rem',

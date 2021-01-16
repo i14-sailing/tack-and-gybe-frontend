@@ -39,40 +39,58 @@ const GithubIcon = (
     </svg>
 );
 
-function Footer() {
-    const linkColors =
-        'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
+const linkColors =
+    'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
 
-    return (
-        <div className='flex flex-row items-center justify-center py-8'>
-            <div className='w-12 h-5' />
-            <div className='self-stretch flex-grow' />
-            <div className='flex flex-row items-center self-center justify-center text-gray-800'>
-                <span>built with</span>
-                <div className='w-5 h-5 mx-1 text-red-400' title='love'>
-                    {HeartIcon}
-                </div>
-                <span>in munich</span>
-            </div>
-            <div className='self-stretch flex-grow' />
-            <a
-                href='https://tack-and-gybe-cms-kv6v35vima-ew.a.run.app/admin'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='mr-2'
-                title='Admin Login'
-            >
-                <div className={`w-5 h-5 ${linkColors}`}>{AddIcon}</div>
-            </a>
-            <a
-                href='https://github.com/i14sailing/tack-and-gybe-frontend'
-                target='_blank'
-                rel='noopener noreferrer'
-                title='Code on GitHub'
-            >
-                <div className={`w-5 h-5 ${linkColors}`}>{GithubIcon}</div>
-            </a>
+const BuiltWithLove = (
+    <div className='flex flex-row items-center self-center justify-center text-gray-800'>
+        <span>built with</span>
+        <div className='w-5 h-5 mx-1 text-red-400' title='love'>
+            {HeartIcon}
         </div>
+        <span>in munich</span>
+    </div>
+);
+const Stretch = <div className='self-stretch flex-grow' />;
+const Buttons = (
+    <>
+        <a
+            href='https://tack-and-gybe-cms-kv6v35vima-ew.a.run.app/admin'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='mr-2'
+            title='Admin Login'
+        >
+            <div className={`w-5 h-5 ${linkColors}`}>{AddIcon}</div>
+        </a>
+        <a
+            href='https://github.com/i14sailing/tack-and-gybe-frontend'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='Code on GitHub'
+        >
+            <div className={`w-5 h-5 ${linkColors}`}>{GithubIcon}</div>
+        </a>
+    </>
+);
+
+function Footer() {
+    return (
+        <>
+            <div className='flex flex-col mt-8 md:hidden'>
+                {BuiltWithLove}
+                <div className='flex flex-row items-center justify-center pt-2 pb-6'>
+                    {Buttons}
+                </div>
+            </div>
+            <div className='flex-row items-center justify-center hidden py-8 md:flex'>
+                <div className='w-12 h-5' />
+                {Stretch}
+                {BuiltWithLove}
+                {Stretch}
+                {Buttons}
+            </div>
+        </>
     );
 }
 
