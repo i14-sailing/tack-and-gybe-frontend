@@ -55,7 +55,7 @@ const Stretch = <div className='self-stretch flex-grow' />;
 const Buttons = (
     <>
         <a
-            href='https://https://tack-and-gybe-cms.dostuffthatmatters.dev/admin'
+            href='https://tack-and-gybe-cms.dostuffthatmatters.dev/admin'
             target='_blank'
             rel='noopener noreferrer'
             className='mr-2'
