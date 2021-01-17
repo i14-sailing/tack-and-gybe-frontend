@@ -64,6 +64,26 @@ function VideoCard(props: Props) {
         );
     }
 
+    const Label1 = (
+        <>
+            <div className='w-6 h-6 text-red-400'>{StarIcon}</div>
+            <div className='text-red-400 ml font-weight-700'>
+                {props.index + 1}
+            </div>
+            <div className='ml-2 font-weight-700'>
+                {timeToStr(time, true)} (+ {diff}s)
+            </div>
+        </>
+    );
+    const Label2 = (
+        <>
+            <div className='w-6 h-6'>{TimerIcon}</div>
+            <div className='ml-1 font-weight-700'>
+                {timeToStr(startTime, false)} - {timeToStr(endTime, false)}
+            </div>
+        </>
+    );
+
     return (
         <div className='w-full mb-4 overflow-hidden bg-white rounded shadow'>
             <div
@@ -105,19 +125,17 @@ function VideoCard(props: Props) {
             <div
                 className={`w-full z-20 flex flex-col px-4 py-2 text-lg text-gray-600`}
             >
-                <div className='flex flex-row items-center justify-center'>
-                    <div className='w-6 h-6 text-red-400'>{StarIcon}</div>
-                    <div className='text-red-400 ml font-weight-700'>
-                        {props.index + 1}
-                    </div>
-                    <div className='ml-2 font-weight-700'>
-                        {timeToStr(time, true)} (+ {diff}s)
-                    </div>
+                <div className='flex-row items-center justify-center hidden md:flex'>
+                    {Label1}
                     <div className='self-stretch flex-grow' />
-                    <div className='w-6 h-6'>{TimerIcon}</div>
-                    <div className='ml-1 font-weight-700'>
-                        {timeToStr(startTime, false)} -{' '}
-                        {timeToStr(endTime, false)}
+                    {Label2}
+                </div>
+                <div className='flex flex-col items-center justify-center md:hidden '>
+                    <div className='flex flex-row items-start justify-center'>
+                        {Label1}
+                    </div>
+                    <div className='flex flex-row items-start justify-center mt-2'>
+                        {Label2}
                     </div>
                 </div>
             </div>

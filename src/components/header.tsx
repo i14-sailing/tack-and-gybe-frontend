@@ -69,7 +69,7 @@ function Header(props: Props) {
 
                 <div
                     className={
-                        'relative w-full flex flex-row items-center justify-center'
+                        'mt-2 relative w-full flex flex-row items-center justify-center'
                     }
                 >
                     <div
