@@ -78,7 +78,7 @@ function VideoCard(props: Props) {
     const Label2 = (
         <>
             <div className='w-6 h-6'>{TimerIcon}</div>
-            <div className='ml-1 font-weight-700'>
+            <div className='ml-1 font-weight-500'>
                 {timeToStr(startTime, false)} - {timeToStr(endTime, false)}
             </div>
         </>
