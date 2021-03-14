@@ -1,6 +1,12 @@
 {
   "name": "tack-and-gybe-frontend",
   "description": "Gatsby/TailwindCSS frontend for the I14 Tack and Gybe Challenge",
+  "version": "0.2.0",
+  "author": {
+    "name": "Moritz Makowski",
+    "email": "moritz@dostuffthatmatters.dev"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "build:tailwind": "tailwind build src/styles/tailwind.css -o src/styles/tailwind.out.css",
