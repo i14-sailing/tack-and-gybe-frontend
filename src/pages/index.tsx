@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import VideoCard from '../components/video-card';
 import { sortBy } from 'lodash';
+import TabBar from '../components/tab-bar';
 
 export default function Home() {
+    const [tackTab, setTackTab] = useState(true);
+
     const { allStrapiVideoSubmission } = useStaticQuery(query);
     const { edges } = allStrapiVideoSubmission;
 
@@ -20,6 +23,7 @@ export default function Home() {
 
         return (
             <>
+                <TabBar {...{ tackTab, setTackTab }} />
                 <div
                     className={
                         'mx-auto w-full mt-4 mb-8 ' +

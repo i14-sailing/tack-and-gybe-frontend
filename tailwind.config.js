@@ -1,3 +1,7 @@
+// prettier-ignore
+require('dotenv').config({
+    path: `.env`,
+});
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -6,7 +10,7 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: {
-        enabled: true,
+        enabled: process.env.PURGE_TAILWIND === "true",
         content: [
             './src/**/*.js',
             './src/**/*.jsx',
