@@ -1,16 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-
-/*
-If I were to use: <img src="....svg"/>, I would not be able to change
-the fill color of the svg at runtime. With this I can just change the
-text color of the parent node.
-*/
-const I14Logo = (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 417 417' version='1.1'>
-        <path d='M16.538,0l76.718,0l0,314.682l-76.718,0l0,-314.682Zm0,416.667l383.591,-0l-0,-66.612l-383.591,0l0,66.612Zm267.824,-324.789l0,96.012l-79.015,0l79.015,-96.012Zm-155.733,163.083l155.733,0l0,59.721l76.718,0l0,-59.721l39.049,0l-0,-66.611l-39.049,-0l0,-188.35l-76.718,-0l0,0.459l-155.273,187.891l-0.46,-0l0,66.611Z' />
-    </svg>
-);
+import icons from '../utils/icons';
 
 const linkColors =
     'text-gray-700 transition-colors duration-100 cursor-pointer hover:text-rose-600';
@@ -19,7 +9,7 @@ const absolute = 'absolute left-0 transform -translate-y-1/2';
 
 const I14Link = (
     <Link to='/' className={`${absolute} left-0 top-1/2 hidden md:block`}>
-        <div className={`w-8 h-8 ${linkColors}`}>{I14Logo}</div>
+        <div className={`w-8 h-8 ${linkColors}`}>{icons.i14}</div>
     </Link>
 );
 
