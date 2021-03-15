@@ -15,7 +15,7 @@ export default function Page() {
             <img src='./images/success.jpeg' className='w-full rounded' />
             <p className='mt-6 mb-4'>
                 <strong>All done!</strong> You should received an email from us
-                within a few minutes{email && ` (we've sent it to ${email})`}.
+                within a few minutes{email && ` (we've sent it to <${email}>)`}.
                 If there's a typo in your email, just fill out the{' '}
                 <Link to='/submit' className='text-blue-500 font-weight-600'>
                     form

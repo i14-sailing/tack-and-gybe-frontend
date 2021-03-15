@@ -1,13 +1,13 @@
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
 import icons from '../utils/icons';
-
-const emailLambdaUrl = 'https://zealous-blackwell-87df58.netlify.app/';
+import { navigate } from 'gatsby';
 
 function Input(props: {
     placeholder: string;
     value: string;
     setValue(s: string): void;
+    disabled?: boolean;
 }) {
     return (
         <input
@@ -18,6 +18,7 @@ function Input(props: {
             placeholder={props.placeholder}
             value={props.value}
             onChange={(e: any) => props.setValue(e.target.value)}
+            disabled={props.disabled}
         />
     );
 }
@@ -57,6 +58,7 @@ export default function Page() {
                 .then(esponse => {
                     console.log(esponse);
                     setSubmitting(false);
+                    navigate(`/success?email=${email}`);
                 })
                 .catch(error => {
                     console.log(error);
@@ -66,37 +68,39 @@ export default function Page() {
     }
 
     return (
-        <div className='my-12 centering-col'>
-            <h1 className='mb-6 text-3xl text-center text-gray-800'>
+        <div className='my-12 centering-col styled-article'>
+            <h3 className='mb-6 text-3xl text-center text-gray-800'>
                 Tack & Gybe Submission
-            </h1>
+            </h3>
             <div className='grid grid-cols-5 mx-4 mb-6 text-gray-700 bg-white rounded shadow'>
-                <h4 className='flex flex-row items-center justify-end w-full h-full col-span-1 text-right'>
+                <h4 className='flex flex-row items-center justify-end w-full h-full col-span-1 pr-4 text-right'>
                     Some Notes
                 </h4>
-                <p className='col-span-4 px-8 py-4 mb-0 text-lg text-justify text-gray-700 font-weight-500'>
-                    We need your email for contacting you about any issues
-                    regarding the submission.
-                    <br />
-                    <br />
-                    The YouTube Video-URLs look like this:{' '}
-                    <span className='text-blue-500 break-all font-weight-600'>
-                        https://www.youtube.com/watch?v=123...
-                    </span>{' '}
-                    or{' '}
-                    <span className='text-blue-500 break-all font-weight-600'>
-                        https://youtu.be/123...
-                    </span>{' '}
-                    <br />
-                    <br />
-                    If you only want to participate in one of the challenges,
-                    leave the corresponding video-field empty.
-                    <br />
-                    <br />
-                    In case you have already submitted a video and want to
-                    update it or add the second one, just mention that in the
-                    "Additional Notes" section.
-                </p>
+                <div className='col-span-4 px-4 py-4 mb-0 text-gray-700 font-weight-500'>
+                    <p className='mb-3'>
+                        We need your email in order to contact you about any
+                        issues regarding the submission.
+                    </p>
+                    <p className='mb-3'>
+                        The YouTube Video-URLs look like this:{' '}
+                        <span className='text-blue-500 break-all font-weight-600'>
+                            https://www.youtube.com/watch?v=123...
+                        </span>{' '}
+                        or{' '}
+                        <span className='text-blue-500 break-all font-weight-600'>
+                            https://youtu.be/123...
+                        </span>
+                    </p>
+                    <p className='mb-3'>
+                        If you only want to participate in one of the
+                        challenges, leave the corresponding video-field empty.
+                    </p>
+                    <p>
+                        In case you have already submitted a video and want to
+                        update it or add the second one, just mention that in
+                        the "Additional Notes" section.
+                    </p>
+                </div>
             </div>
             <div />
             <div className='grid w-full grid-cols-5 space-y-2 text-lg text-gray-800'>
@@ -105,41 +109,42 @@ export default function Page() {
                     placeholder='yourname@smthn.com'
                     value={email}
                     setValue={setEmail}
+                    disabled={submitting}
                 />
-
                 <Label>Boatsname</Label>
                 <Input
                     placeholder='something cool'
                     value={boatsname}
                     setValue={setBoatsname}
+                    disabled={submitting}
                 />
-
                 <Label>Sailnumber</Label>
                 <Input
                     placeholder='GER 123'
                     value={sailnumber}
                     setValue={setSailnumber}
+                    disabled={submitting}
                 />
-
                 <Label>Tack-Video</Label>
                 <Input
                     placeholder='YouTube Video-URL'
                     value={tackVideoURL}
                     setValue={setTackVideoURL}
+                    disabled={submitting}
                 />
-
                 <Label>Gybe-Video</Label>
                 <Input
                     placeholder='YouTube Video-URL'
                     value={gybeVideoURL}
                     setValue={setGybeVideoURL}
+                    disabled={submitting}
                 />
-
                 <Label>Additional Notes</Label>
                 <Input
                     placeholder='optional, e.g. "Updated submission ..."'
                     value={notes}
                     setValue={setNotes}
+                    disabled={submitting}
                 />
             </div>
             <div className='mt-6 space-x-2 centering-row'>
