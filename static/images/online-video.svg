@@ -8,7 +8,7 @@
             </g>
             <rect x="17.719" y="49.389" width="575.616" height="318.837" style="fill:white;"/>
             <g transform="matrix(1,0,0,1,0.26069,0)">
-                <rect x="0" y="0" width="610.532" height="25.938" style="fill:rgb(248,113,113);"/>
+                <rect x="0" y="0" width="610.532" height="25.938" style="fill:#E11D48;"/>
             </g>
             <circle cx="19.275" cy="13.261" r="4.807" style="fill:white;"/>
             <circle cx="37.522" cy="13.261" r="4.807" style="fill:white;"/>
