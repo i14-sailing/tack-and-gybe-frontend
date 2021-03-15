@@ -26,6 +26,10 @@ module.exports = {
                 gray: colors.blueGray,
                 teal: colors.teal,
                 red: colors.red,
+                rose: colors.rose,
+                emerald: colors.emerald,
+                teal: colors.teal,
+                blue: colors.lightBlue,
             },
             spacing: {
                   '5vh':   '5vh',

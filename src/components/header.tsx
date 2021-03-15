@@ -13,7 +13,7 @@ const I14Logo = (
 );
 
 const linkColors =
-    'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
+    'text-gray-700 transition-colors duration-100 cursor-pointer hover:text-rose-600';
 
 const absolute = 'absolute left-0 transform -translate-y-1/2';
 
@@ -64,7 +64,7 @@ function Header(props: Props) {
 
     return (
         <>
-            <div className='flex flex-col items-end justify-center pt-2 md:hidden'>
+            <div className='flex flex-col items-end justify-center pt-2 pb-8 md:hidden'>
                 {RulesLink(rulesPage)}
 
                 <div
@@ -74,7 +74,7 @@ function Header(props: Props) {
                 >
                     <div
                         className={
-                            'mr-1 text-2xl sm:text-3xl h-10 text-gray-600 font-weight-700'
+                            'mr-1 text-2xl sm:text-3xl h-10 text-gray-700 font-weight-700'
                         }
                     >
                         <span className='hidden sm:inline'>I14 </span>Tack &
@@ -82,7 +82,7 @@ function Header(props: Props) {
                     </div>
                     <div
                         className={
-                            'ml-1 text-2xl sm:text-3xl h-10 text-red-400 font-weight-700'
+                            'ml-1 text-2xl sm:text-3xl h-10 text-rose-600 font-weight-700'
                         }
                     >
                         {TitleLabel(rulesPage)}
@@ -90,12 +90,12 @@ function Header(props: Props) {
                     </div>
                 </div>
             </div>
-            <div className={'hidden md:block relative py-8 w-full h-24'}>
+            <div className={'hidden md:block relative pt-8 mb-4 w-full h-24'}>
                 {I14Link}
                 <div
                     className={
                         `${absolute} top-1/2 left-1/2 -translate-x-full ` +
-                        'mr-1 text-3xl leading-10 text-gray-600 font-weight-700'
+                        'mr-1 text-3xl leading-10 text-gray-700 font-weight-700'
                     }
                 >
                     I14 Tack & Gybe
@@ -103,7 +103,7 @@ function Header(props: Props) {
                 <div
                     className={
                         `${absolute} top-1/2 left-1/2 -translate-x-full ` +
-                        'ml-1 h-10 text-3xl leading-10 text-red-400 font-weight-700'
+                        'ml-1 h-10 text-3xl leading-10 text-rose-600 font-weight-700'
                     }
                 >
                     {TitleLabel(rulesPage)}

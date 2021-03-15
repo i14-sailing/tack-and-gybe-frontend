@@ -6,7 +6,7 @@ import PartyEmoji from '../../static/party-emoji.svg';
 
 export default function Home() {
     return (
-        <div className='flex flex-col items-center mt-8'>
+        <div className='flex flex-col items-center'>
             <div className='flex flex-row'>
                 <div className='flex flex-col w-full md:w-1/2 md:pr-8'>
                     <h4 className='text-gray-800 font-weight-700'>
