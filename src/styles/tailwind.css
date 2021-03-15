@@ -128,7 +128,21 @@ main h2 {
     @apply leading-tight;
 }
 
-blurred-image {
+.blurred-image {
     -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
     filter: blur(4px);
 }
+
+.centering-row {
+   @apply flex;
+   @apply flex-row;
+   @apply items-center;
+   @apply justify-items-center;
+}
+
+.centering-col {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-items-center;
+ }

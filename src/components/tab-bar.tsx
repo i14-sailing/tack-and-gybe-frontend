@@ -4,7 +4,7 @@ function TabBar(props: { tackTab: boolean; setTackTab(n: boolean): void }) {
     return (
         <div
             className={
-                'w-full bg-white rounded shadow ' +
+                'w-full bg-white rounded shadow mb-4 ' +
                 'flex flex-row items-center justify-items-center ' +
                 'text-center text-lg font-weight-600 '
             }
