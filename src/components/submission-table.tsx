@@ -1,5 +1,6 @@
 import React from 'react';
 import { RenderSubmissionNode } from '../utils/types';
+import { padStart } from 'lodash';
 
 function SubmissionTable(props: { submissions: RenderSubmissionNode[] }) {
     return (
@@ -8,6 +9,15 @@ function SubmissionTable(props: { submissions: RenderSubmissionNode[] }) {
                 <TableRow submission={s} key={s.youtubeVideoId} index={i} />
             ))}
         </div>
+    );
+}
+
+function timeToStr(time: number, literal: boolean) {
+    const minute = Math.round(Math.floor(time / 60));
+    const second = Math.round(time % 60);
+    return (
+        `${padStart(minute.toString(), 2, '0')}${literal ? 'm ' : ':'}` +
+        `${padStart(second.toString(), 2, '0')}${literal ? 's' : ''}`
     );
 }
 
@@ -49,27 +59,23 @@ function TableRow(props: { submission: RenderSubmissionNode; index: number }) {
             </div>
             <div
                 className={
-                    'col-span-7 font-weight-600 ' +
+                    'col-span-6 font-weight-600 ' +
                     ' flex flex-row items-center justify-start '
                 }
             >
                 {props.submission.boatsName}
             </div>
+
             <div
                 className={
-                    'col-span-2 font-weight-500 ' +
+                    'col-span-5 font-weight-500 ' +
                     ' flex flex-row items-center justify-start '
                 }
             >
-                {props.submission.time} (+ {props.submission.diff})
-            </div>
-            <div
-                className={
-                    'col-span-2 font-weight-500 ' +
-                    ' flex flex-row items-center justify-start '
-                }
-            >
-                {props.submission.startTime} - {props.submission.endTime}
+                {timeToStr(props.submission.time, true)}
+                {props.submission.diff !== 0 && (
+                    <span className='pl-2'>(+ {props.submission.diff}s)</span>
+                )}
             </div>
         </div>
     );
