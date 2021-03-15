@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 
 export default function Page() {
@@ -50,9 +51,8 @@ export default function Page() {
                     </p>
                     <p>2. Upload that video to YouTube</p>
                     <p>
-                        3. Send an email to ... and include the following
-                        details: Link to the video, start/end time (in the
-                        video), your boats name.
+                        3. Submit your Video entry{' '}
+                        <Link to='/submit'>here</Link>
                     </p>
                 </div>
             </div>

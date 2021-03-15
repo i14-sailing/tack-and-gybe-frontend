@@ -106,7 +106,7 @@ main p a {
     @apply text-xl;
     @apply mb-4;
     @apply text-justify;
-    @apply text-teal-500;
+    @apply text-blue-500;
     @apply font-weight-600;
 }
 
@@ -137,12 +137,12 @@ main h2 {
    @apply flex;
    @apply flex-row;
    @apply items-center;
-   @apply justify-items-center;
+   @apply justify-center;
 }
 
 .centering-col {
     @apply flex;
     @apply flex-col;
     @apply items-center;
-    @apply justify-items-center;
+    @apply justify-center;
  }

@@ -32,7 +32,7 @@ module.exports = {
                 rose: colors.rose,
                 emerald: colors.emerald,
                 teal: colors.teal,
-                blue: colors.lightBlue,
+                blue: colors.blue,
             },
             spacing: {
                   '5vh':   '5vh',
