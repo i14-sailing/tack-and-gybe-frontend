@@ -3,17 +3,17 @@ import React from 'react';
 
 export default function Page() {
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center styled-article'>
             <div className='flex flex-row'>
                 <div className='flex flex-col w-full md:w-1/2 md:pr-8'>
-                    <h4 className='text-gray-800 font-weight-700'>
+                    <h4 className='mb-4 text-gray-800 font-weight-700'>
                         The Challenge
                     </h4>
-                    <p>
+                    <p className='mb-2'>
                         Perform <strong>3 tacks and 3 gybes</strong> in the
                         shortest amount of time possible.
                     </p>
-                    <p>
+                    <p className='mb-2'>
                         The moment the first one of you places his foot onto the
                         boat (from the rack) will be counted as the start time.
                     </p>
@@ -41,15 +41,15 @@ export default function Page() {
                     src='./images/online-video.svg'
                 />
                 <div className='flex flex-col w-full mt-8 md:mt-0 md:w-1/2 md:pl-8'>
-                    <h4 className='text-gray-800 font-weight-700'>
+                    <h4 className='mb-4 text-gray-800 font-weight-700'>
                         How do I Take Part?
                     </h4>
-                    <p>
+                    <p className='mb-2'>
                         1. Perform your business and film yourself from a
                         suitable angle. Camera mounted to the boom or the
                         spinnaker pole for example.
                     </p>
-                    <p>2. Upload that video to YouTube</p>
+                    <p className='mb-2'>2. Upload that video to YouTube</p>
                     <p>
                         3. Submit your Video entry{' '}
                         <Link to='/submit'>here</Link>

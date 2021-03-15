@@ -64,68 +64,59 @@ svg {
     width: 100%;
 }
 
-h1 {
+.styled-article h1 {
     @apply text-5xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h2 {
+.styled-article h2 {
     @apply text-4xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h3 {
+.styled-article h3 {
     @apply text-3xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h4 {
+.styled-article h4 {
     @apply text-2xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h5 {
+.styled-article h5 {
     @apply text-xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-main p {
-    @apply text-xl;
-    @apply mb-4;
+.styled-article p {
+    @apply text-lg;
     @apply text-justify;
-    @apply font-weight-400;
+    @apply font-weight-500;
     @apply text-gray-900;
 }
 
-main p a {
-    @apply text-xl;
-    @apply mb-4;
+.styled-article p a {
+    @apply text-lg;
     @apply text-justify;
     @apply text-blue-500;
     @apply font-weight-600;
 }
 
-main strong {
+.styled-article h1 {
+    @apply w-full;
+    @apply leading-tight;
+    @apply text-center;
+}
+
+.styled-article h2 {
+    @apply w-full;
+    @apply text-center;
+    @apply leading-tight;
+}
+
+strong {
     @apply font-weight-600;
-}
-
-main h1 {
-    @apply w-full;
-    @apply leading-tight;
-    @apply text-center;
-    @apply mb-8;
-}
-
-main h2 {
-    @apply mt-8;
-    @apply w-full;
-    @apply text-center;
-    @apply leading-tight;
 }
 
 .blurred-image {

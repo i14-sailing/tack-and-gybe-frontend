@@ -6,7 +6,10 @@ import { Helmet } from 'react-helmet';
 export default function Layout({ children, location }) {
     let body;
 
-    if (location.pathname.includes('submit')) {
+    if (
+        location.pathname.includes('submit') ||
+        location.pathname.includes('success')
+    ) {
         body = <main className='w-full'>{children}</main>;
     } else {
         body = (

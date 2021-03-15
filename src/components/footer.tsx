@@ -39,13 +39,13 @@ const Buttons = (
 function Footer() {
     return (
         <>
-            <div className='flex flex-col mt-8 md:hidden'>
+            <div className='flex flex-col w-full mt-8 md:hidden'>
                 {BuiltWithLove}
                 <div className='flex flex-row items-center justify-center pt-2 pb-6'>
                     {Buttons}
                 </div>
             </div>
-            <div className='flex-row items-center justify-center hidden py-8 md:flex'>
+            <div className='flex-row items-center justify-center hidden w-full py-8 md:flex'>
                 <div className='w-12 h-5' />
                 {Stretch}
                 {BuiltWithLove}
