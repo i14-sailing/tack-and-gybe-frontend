@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import GhostEmoji from '../../static/ghost-emoji.svg';
 
 export default function Home() {
     return (
@@ -9,7 +8,7 @@ export default function Home() {
                 Nothing here
                 <img
                     className='inline w-8 h-8 ml-1'
-                    src={GhostEmoji}
+                    src='./emojis/ghost-emoji.svg'
                     alt='Ghost emoji'
                 />
             </div>

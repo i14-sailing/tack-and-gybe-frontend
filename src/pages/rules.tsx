@@ -1,10 +1,6 @@
 import React from 'react';
-import UndrawImageSanFran from '../../static/undraw-images/undraw_Golden_gate_bridge_jkph.svg';
-import UndrawImageYoutube from '../../static/undraw-images/undraw_online_video_ivvq.svg';
-import WinkEmoji from '../../static/wink-emoji.svg';
-import PartyEmoji from '../../static/party-emoji.svg';
 
-export default function Home() {
+export default function Page() {
     return (
         <div className='flex flex-col items-center'>
             <div className='flex flex-row'>
@@ -28,20 +24,20 @@ export default function Home() {
                 </div>
                 <img
                     className='hidden w-1/2 pl-8 my-auto h-80 md:block'
-                    src={UndrawImageSanFran}
+                    src='./images/golden-gate.svg'
                 />
             </div>
 
             <p className='my-8 sm:my-12 md:my-16'>
                 You can choose the location, the conditions (at least a light
                 Doppelsteher) and your gear.
-                <img className='inline w-8 h-8 ml-1' src={WinkEmoji} />
+                <img className='inline w-8 h-8 ml-1' src={'./wink-emoji.svg'} />
             </p>
 
             <div className='flex flex-row'>
                 <img
                     className='hidden w-1/2 pr-8 my-auto h-60 md:block'
-                    src={UndrawImageYoutube}
+                    src='./images/online-video.svg'
                 />
                 <div className='flex flex-col w-full mt-8 md:mt-0 md:w-1/2 md:pl-8'>
                     <h4 className='text-gray-800 font-weight-700'>
@@ -63,7 +59,10 @@ export default function Home() {
 
             <p className='my-8 sm:my-12 md:my-16'>
                 Have fun!
-                <img className='inline w-8 h-8 ml-1' src={PartyEmoji} />
+                <img
+                    className='inline w-8 h-8 ml-1'
+                    src='./emojis/party-emoji.svg'
+                />
             </p>
         </div>
     );
