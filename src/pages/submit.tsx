@@ -1,5 +1,8 @@
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
+import icons from '../utils/icons';
+
+const emailLambdaUrl = 'https://zealous-blackwell-87df58.netlify.app/';
 
 function Input(props: {
     placeholder: string;
@@ -27,48 +30,61 @@ function Label(props: { children: string }) {
     );
 }
 
-function Button(props: {
-    children: string;
-    onClick?(): void;
-    className?: string;
-}) {
-    return (
-        <button
-            className={`transition-colors duration-150 cursor-pointer centering-row h-11 px-8 text-lg rounded font-weight-600 shadow ${props.className}`}
-        >
-            {props.children}
-        </button>
-    );
-}
-
 export default function Page() {
     const [email, setEmail] = useState('');
-    const [boatsName, setBoatsName] = useState('');
-    const [sailNumber, setSailNumber] = useState('');
+    const [boatsname, setBoatsname] = useState('');
+    const [sailnumber, setSailnumber] = useState('');
     const [tackVideoURL, setTackVideoURL] = useState('');
     const [gybeVideoURL, setGybeVideoURL] = useState('');
     const [notes, setNotes] = useState('');
 
+    const [submitting, setSubmitting] = useState(false);
+
+    function onSubmit() {
+        setSubmitting(true);
+
+        if (!submitting) {
+            fetch(
+                'https://zealous-blackwell-87df58.netlify.app/.netlify/functions/send-submission-email' +
+                    `?email=${email}&boatsname=${boatsname}&` +
+                    `sailnumber=${sailnumber}&tackVideoUrl=${tackVideoURL}&` +
+                    `gybeVideoUrl=${gybeVideoURL}&notes=${notes}`,
+                {
+                    method: 'POST',
+                    mode: 'no-cors',
+                }
+            )
+                .then(esponse => {
+                    console.log(esponse);
+                    setSubmitting(false);
+                })
+                .catch(error => {
+                    console.log(error);
+                    setSubmitting(false);
+                });
+        }
+    }
+
     return (
-        <div className='centering-col'>
+        <div className='my-12 centering-col'>
             <h1 className='mb-6 text-3xl text-center text-gray-800'>
                 Tack & Gybe Submission
             </h1>
-            <div className='grid grid-cols-5 mx-4 mb-6 text-gray-500 bg-white rounded shadow'>
+            <div className='grid grid-cols-5 mx-4 mb-6 text-gray-700 bg-white rounded shadow'>
                 <h4 className='flex flex-row items-center justify-end w-full h-full col-span-1 text-right'>
                     Some Notes
                 </h4>
-                <p className='col-span-4 px-8 py-4 mb-0 text-lg text-justify text-gray-500 font-weight-500'>
+                <p className='col-span-4 px-8 py-4 mb-0 text-lg text-justify text-gray-700 font-weight-500'>
                     We need your email for contacting you about any issues
                     regarding the submission.
                     <br />
                     <br />
                     The YouTube Video-URLs look like this:{' '}
-                    <span className='text-blue-400 break-all font-weight-600'>
+                    <span className='text-blue-500 break-all font-weight-600'>
                         https://www.youtube.com/watch?v=123...
                     </span>{' '}
                     or{' '}
-                    <span className='text-blue-400 break-all font-weight-600'>
+                    <span className='text-blue-500 break-all font-weight-600'>
                         https://youtu.be/123...
                     </span>{' '}
                     <br />
@@ -93,16 +109,16 @@ export default function Page() {
 
                 <Label>Boatsname</Label>
                 <Input
-                    placeholder='something cool hopefully'
-                    value={boatsName}
-                    setValue={setBoatsName}
+                    placeholder='something cool'
+                    value={boatsname}
+                    setValue={setBoatsname}
                 />
 
                 <Label>Sailnumber</Label>
                 <Input
                     placeholder='GER 123'
-                    value={sailNumber}
-                    setValue={setSailNumber}
+                    value={sailnumber}
+                    setValue={setSailnumber}
                 />
 
                 <Label>Tack-Video</Label>
@@ -121,7 +137,7 @@ export default function Page() {
 
                 <Label>Additional Notes</Label>
                 <Input
-                    placeholder='optional, e.g. "Updated submission", ...'
+                    placeholder='optional, e.g. "Updated submission ..."'
                     value={notes}
                     setValue={setNotes}
                 />
@@ -139,11 +155,33 @@ export default function Page() {
                 </Link>
                 <button
                     className={
-                        `transition-colors duration-150 cursor-pointer centering-row h-11 px-8 text-lg rounded font-weight-600 shadow ` +
-                        'text-green-900 bg-green-300 hover:bg-green-200'
+                        'transition-colors duration-150 shadow rounded ' +
+                        'centering-row h-11 px-8 text-lg font-weight-600 relative ' +
+                        'text-green-900 hover:bg-green-200 ' +
+                        (submitting
+                            ? 'cursor-default bg-green-200 '
+                            : 'cursor-pointer bg-green-300 ')
                     }
+                    onClick={onSubmit}
+                    disabled={submitting}
                 >
-                    Submit
+                    <span
+                        className={
+                            'transition-opacity duration-150 ' +
+                            (submitting ? 'opacity-0 ' : 'opacity-100 ')
+                        }
+                    >
+                        Submit
+                    </span>
+                    <div
+                        className={
+                            'w-6 h-6 transform absolute transition-opacity duration-150 ' +
+                            '-translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ' +
+                            (submitting ? 'opacity-100 ' : 'opacity-0 ')
+                        }
+                    >
+                        <div className='w-6 h-6 animate-spin'>{icons.loop}</div>
+                    </div>
                 </button>
             </div>
         </div>
