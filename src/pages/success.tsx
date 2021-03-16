@@ -14,7 +14,7 @@ export default function Page({ location }) {
         <div className='max-w-lg mx-auto my-12 text-lg text-center text-gray-800 centering-col font-weight-500'>
             <img src='/images/applause.gif' className='w-full rounded' />
             <p className='mt-6 mb-4'>
-                <strong>All done!</strong> You should received an email from us
+                <strong>All done!</strong> You should receive an email from us
                 within a few minutes{email && ` (we've sent it to ${email})`}.
                 If there's a typo in your email, just fill out the{' '}
                 <Link to='/submit' className='text-blue-500 font-weight-600'>

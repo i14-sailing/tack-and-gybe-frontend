@@ -220,8 +220,8 @@ export default function Page() {
                     (entryValid() ? 'opacity-0 ' : 'opacity-100 ')
                 }
             >
-                Required Fields: Email, Boatsname, Sailnumber at least one video
-                link.
+                Required Fields: Email, Boatsname, Sailnumber and at least one
+                video link.
             </div>
         </div>
     );
