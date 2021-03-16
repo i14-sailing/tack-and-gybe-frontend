@@ -3,6 +3,7 @@ require('dotenv').config({
     path: `.env`,
 });
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     future: {
@@ -19,6 +20,10 @@ module.exports = {
         ],
     },
     theme: {
+        screens: {
+            'xs': '475px',
+            ...defaultTheme.screens,
+        },
         extend: {
             gridTemplateColumns: {
                 '16': 'repeat(16, minmax(0, 1fr))',

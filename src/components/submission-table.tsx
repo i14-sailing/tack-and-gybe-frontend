@@ -104,7 +104,8 @@ function TableRow(props: {
             >
                 <div
                     className={
-                        'w-full col-span-1 font-weight-600 text-lg ' +
+                        'row-span-2 lg:row-span-1 col-span-2 xs:col-span-1 ' +
+                        'w-full font-weight-600 text-lg ' +
                         'flex flex-row items-center justify-center'
                     }
                 >
@@ -112,36 +113,72 @@ function TableRow(props: {
                 </div>
                 <div
                     className={
-                        'w-full col-span-2 font-weight-500 ' +
-                        'flex flex-row items-center justify-end'
+                        'row-span-2 lg:row-span-1 col-span-3 md:col-span-2 ' +
+                        'w-full font-weight-500 ' +
+                        'flex flex-row items-center justify-end pr-3'
                     }
                 >
                     <img
-                        className='rounded-sm w-14 h-7 ring-2 ring-gray-300'
+                        className={
+                            'w-10 h-5 xs:w-12 xs:h-6 sm:w-14 sm:h-7 ' +
+                            'rounded-sm ring-1 xs:ring-2 ring-gray-300'
+                        }
                         src={`./flags/${props.submission.country}_Flag_200w.png`}
                     />
                 </div>
                 <div
                     className={
-                        'col-span-2 pl-3 font-weight-600 ' +
-                        ' flex flex-row items-center justify-start '
+                        'row-span-2 lg:row-span-1 col-span-3 md:col-span-2 ' +
+                        'font-weight-600 ' +
+                        'flex flex-row items-center justify-start '
                     }
                 >
                     {props.submission.country} {props.submission.sailNumber}
                 </div>
                 <div
                     className={
-                        'col-span-5 font-weight-600 pr-3 ' +
-                        ' flex flex-row items-center justify-start '
+                        'col-span-7 lg:col-span-5 ' +
+                        'font-weight-600 pr-3 ' +
+                        'hidden xs:flex flex-row items-center justify-start '
                     }
                 >
                     {props.submission.boatsName}
                 </div>
+                <div
+                    className={
+                        'col-span-6 pl-3 row-span-2 ' +
+                        'font-weight-500 ' +
+                        'flex xs:hidden flex-row items-center justify-start '
+                    }
+                >
+                    {timeToStr(props.submission.time, true)}
+                </div>
+                <div
+                    className={
+                        'col-span-2 row-span-2 ' +
+                        'font-weight-500 ' +
+                        'flex lg:hidden flex-row items-center justify-end '
+                    }
+                >
+                    <div
+                        className={
+                            'centering-row py-2 px-3 rounded ' +
+                            'cursor-pointer font-weight-600 ' +
+                            'text-gray-700 hover:text-gray-800 ' +
+                            'bg-gray-200 hover:bg-gray-100'
+                        }
+                    >
+                        <div className='w-6 h-6 opacity-75'>
+                            {ICONS.playVideo}
+                        </div>
+                    </div>
+                </div>
 
                 <div
                     className={
-                        'col-span-3 font-weight-500 ' +
-                        ' flex flex-row items-center justify-start '
+                        'col-span-7 lg:col-span-3 ' +
+                        'font-weight-500 ' +
+                        'hidden xs:flex flex-row items-center justify-start '
                     }
                 >
                     {timeToStr(props.submission.time, true)}
@@ -153,8 +190,9 @@ function TableRow(props: {
                 </div>
                 <div
                     className={
-                        'col-span-3 font-weight-500 ' +
-                        'flex flex-row items-center justify-end '
+                        'col-span-3 ' +
+                        'font-weight-500 ' +
+                        'hidden lg:flex flex-row items-center justify-end '
                     }
                 >
                     <div
