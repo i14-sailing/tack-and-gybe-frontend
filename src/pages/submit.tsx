@@ -29,7 +29,7 @@ function Label(props: { children: string }) {
             className={
                 'flex flex-row items-center font-weight-700 ' +
                 'justify-start pl-1 pt-6 col-span-5 ' +
-                'md:justify-end md:col-span-1 '
+                'md:justify-end md:col-span-1 md:pl-0 md:pt-0 '
             }
         >
             {props.children}
@@ -46,6 +46,15 @@ export default function Page() {
     const [notes, setNotes] = useState('');
 
     const [submitting, setSubmitting] = useState(false);
+
+    function entryValid() {
+        return (
+            email != '' &&
+            boatsname != '' &&
+            sailnumber != '' &&
+            (tackVideoURL != '' || gybeVideoURL != '')
+        );
+    }
 
     function onSubmit() {
         setSubmitting(true);
@@ -115,7 +124,8 @@ export default function Page() {
                 </div>
             </div>
             <div />
-            <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-2'>
+            <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-3'>
+                <div className='hidden' />
                 <Label>Your Email</Label>
                 <Input
                     placeholder='yourname@smthn.com'
@@ -177,9 +187,11 @@ export default function Page() {
                         'text-green-900 hover:bg-green-200 ' +
                         (submitting
                             ? 'cursor-default bg-green-200 '
-                            : 'cursor-pointer bg-green-300 ')
+                            : entryValid()
+                            ? 'cursor-pointer bg-green-300 '
+                            : 'cursor-not-allowed bg-green-200 ')
                     }
-                    onClick={onSubmit}
+                    onClick={entryValid() ? onSubmit : () => {}}
                     disabled={submitting}
                 >
                     <span
@@ -200,6 +212,16 @@ export default function Page() {
                         <div className='w-6 h-6 animate-spin'>{ICONS.loop}</div>
                     </div>
                 </button>
+            </div>
+            <div
+                className={
+                    'mt-8 md:mt-4 text-base text-gray-800 font-weight-500 ' +
+                    'transition-opacity duration-150 ' +
+                    (entryValid() ? 'opacity-0 ' : 'opacity-100 ')
+                }
+            >
+                Required Fields: Email, Boatsname, Sailnumber at least one video
+                link.
             </div>
         </div>
     );
