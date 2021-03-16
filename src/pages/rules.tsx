@@ -10,17 +10,21 @@ export default function Page() {
                         The Challenge
                     </h4>
                     <p className='mb-2'>
-                        Perform <strong>3 tacks and 3 gybes</strong> in the
+                        Perform <strong>3 tacks and/or 3 gybes</strong> in the
                         shortest amount of time possible.
                     </p>
                     <p className='mb-2'>
                         The moment the first one of you places his foot onto the
                         boat (from the rack) will be counted as the start time.
                     </p>
-                    <p>
+                    <p className='mb-2'>
                         The timer stops when both of you are hanging on your
                         trapeze (doesn't matter whether you are plugged in or
                         not, but your weight must not be on the rack).
+                    </p>
+                    <p>
+                        For each challenge there will be a separate voting and
+                        you can also participate in just one of them.
                     </p>
                 </div>
                 <img
@@ -49,10 +53,14 @@ export default function Page() {
                         suitable angle. Camera mounted to the boom or the
                         spinnaker pole for example.
                     </p>
-                    <p className='mb-2'>2. Upload that video to YouTube</p>
+                    <p className='mb-2'>
+                        2. Upload that video to YouTube. You can have one video
+                        for each challenge or one video containing both
+                        performances.
+                    </p>
                     <p>
-                        3. Submit your Video entry{' '}
-                        <Link to='/submit'>here</Link>
+                        3. Submit your video entry{' '}
+                        <Link to='/submit'>here</Link>.
                     </p>
                 </div>
             </div>
