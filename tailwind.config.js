@@ -40,6 +40,10 @@ module.exports = {
                 blue: colors.blue,
             },
             spacing: {
+                '1/4': '0.0625rem',
+                '1/2': '0.125rem',
+                '3/4': '0.1875rem',
+                '3/2': '0.375rem',
                   '5vh':   '5vh',
                  '10vh':  '10vh',
                  '15vh':  '15vh',

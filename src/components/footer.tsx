@@ -14,16 +14,17 @@ const BuiltWithLove = (
     </div>
 );
 const Stretch = <div className='self-stretch flex-grow' />;
+const iconClassName = `w-12 h-12 p-2 sm:w-10 sm:h-10 sm:p-3/2 md:p-1 md:w-9 md:h-9 lg:p-3/2 ${linkColors}`;
 const Buttons = (
     <>
         <a
             href='https://tack-and-gybe-cms.dostuffthatmatters.dev/admin'
             target='_blank'
             rel='noopener noreferrer'
-            className='mr-2'
+            className='mr-1 md:mr-2'
             title='Admin Login'
         >
-            <div className={`w-5 h-5 ${linkColors}`}>{ICONS.addVideo}</div>
+            <div className={iconClassName}>{ICONS.addVideo}</div>
         </a>
         <a
             href='https://github.com/i14sailing/tack-and-gybe-frontend'
@@ -31,7 +32,7 @@ const Buttons = (
             rel='noopener noreferrer'
             title='Code on GitHub'
         >
-            <div className={`w-5 h-5 ${linkColors}`}>{ICONS.github}</div>
+            <div className={iconClassName}>{ICONS.github}</div>
         </a>
     </>
 );
