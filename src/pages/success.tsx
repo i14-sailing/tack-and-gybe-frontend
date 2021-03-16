@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-export default function Page() {
+export default function Page({ location }) {
     const urlParams = new URLSearchParams(location.search);
 
     let email;

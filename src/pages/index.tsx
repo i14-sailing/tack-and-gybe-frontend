@@ -56,8 +56,6 @@ export default function Home() {
         </div>
     );
 
-    console.log(nodes, submissions);
-
     if (submissions.length > 0) {
         const timedSubmissions = sortBy(
             submissions.map((n: ReducedSubmissionNode) => ({

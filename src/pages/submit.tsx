@@ -70,8 +70,8 @@ export default function Page() {
                     mode: 'no-cors',
                 }
             )
-                .then(esponse => {
-                    console.log(esponse);
+                .then(response => {
+                    console.log(response);
                     setSubmitting(false);
                     navigate(`/success?email=${email}`);
                 })
