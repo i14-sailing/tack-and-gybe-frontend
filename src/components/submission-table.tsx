@@ -46,12 +46,12 @@ function TableRow(props: {
                         onClick={() => setVideoMounted(false)}
                     />
                     <div className='relative z-10 overflow-hidden text-lg text-white bg-gray-900 rounded-lg shadow centering-col'>
-                        <div className='w-full p-4 space-x-8 text-2xl centering-row font-weight-400'>
+                        <div className='w-full p-4 space-x-8 text-xl centering-row font-weight-500'>
                             <div className='w-7 h-7' />
                             <div className='self-stretch flex-grow' />
                             <div className='text-center w-128'>
                                 3{' '}
-                                <strong className='text-rose-600'>
+                                <strong className='text-rose-400'>
                                     {props.tackTab ? 'Tacks' : 'Gybes'}
                                 </strong>{' '}
                                 on "{props.submission.boatsName}" (
@@ -131,7 +131,7 @@ function TableRow(props: {
                 </div>
                 <div
                     className={
-                        'col-span-6 font-weight-600 ' +
+                        'col-span-5 font-weight-600 pr-3 ' +
                         ' flex flex-row items-center justify-start '
                     }
                 >
@@ -140,7 +140,7 @@ function TableRow(props: {
 
                 <div
                     className={
-                        'col-span-5 font-weight-500 ' +
+                        'col-span-3 font-weight-500 ' +
                         ' flex flex-row items-center justify-start '
                     }
                 >
@@ -150,6 +150,26 @@ function TableRow(props: {
                             (+ {props.submission.diff}s)
                         </span>
                     )}
+                </div>
+                <div
+                    className={
+                        'col-span-3 font-weight-500 ' +
+                        'flex flex-row items-center justify-end '
+                    }
+                >
+                    <div
+                        className={
+                            'centering-row py-1 px-3 rounded ' +
+                            'cursor-pointer font-weight-600 ' +
+                            'text-gray-700 hover:text-gray-800 ' +
+                            'bg-gray-200 hover:bg-gray-100'
+                        }
+                    >
+                        <div className='w-5 h-5 mr-2 opacity-75'>
+                            {ICONS.playVideo}
+                        </div>
+                        <div>Play Video</div>
+                    </div>
                 </div>
             </div>
         </>
