@@ -45,11 +45,17 @@ function TableRow(props: {
                         className='z-0 absolute-full'
                         onClick={() => setVideoMounted(false)}
                     />
-                    <div className='relative z-10 overflow-hidden text-lg text-white bg-gray-900 rounded-lg shadow centering-col'>
-                        <div className='w-full p-4 space-x-8 text-xl centering-row font-weight-500'>
-                            <div className='w-7 h-7' />
-                            <div className='self-stretch flex-grow' />
-                            <div className='text-center w-128'>
+                    <div
+                        className={
+                            'relative z-10 overflow-hidden text-lg text-white bg-gray-900 rounded-lg shadow centering-col ' +
+                            'md:mx-0 md:max-w-2xl lg:max-w-3xl '
+                        }
+                        style={{ width: 'calc(100vw - 1rem)' }}
+                    >
+                        <div className='w-full p-4 text-xl md:space-x-2 centering-row font-weight-500'>
+                            <div className='flex-shrink-0 hidden md:block w-7 h-7' />
+                            <div className='self-stretch flex-grow hidden md:block' />
+                            <div className='mr-4 text-left md:text-center md:mr-0'>
                                 3{' '}
                                 <strong className='text-rose-400'>
                                     {props.tackTab ? 'Tacks' : 'Gybes'}
@@ -60,14 +66,14 @@ function TableRow(props: {
                             </div>
                             <div className='self-stretch flex-grow' />
                             <div
-                                className='text-white cursor-pointer w-7 h-7'
+                                className='flex-shrink-0 text-white cursor-pointer w-7 h-7'
                                 onClick={() => setVideoMounted(false)}
                             >
                                 {ICONS.close}
                             </div>
                         </div>
                         <div
-                            className='relative h-0 w-192'
+                            className='relative w-full h-0'
                             style={{ paddingTop: '56.25%' }}
                         >
                             <iframe
@@ -78,7 +84,13 @@ function TableRow(props: {
                                 allowFullScreen
                             />
                         </div>
-                        <div className='w-full p-4 space-x-8 centering-row font-weight-500 '>
+                        <div
+                            className={
+                                'flex flex-col sm:flex-row items-center justify-center ' +
+                                'space-y-2 sm:space-y-0 sm:space-x-8 ' +
+                                'w-full p-4 font-weight-500'
+                            }
+                        >
                             <div>
                                 Start:{' '}
                                 {timeToStr(props.submission.startTime, true)}
