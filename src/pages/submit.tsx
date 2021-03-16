@@ -84,6 +84,12 @@ export default function Page() {
 
     return (
         <div className='my-12 centering-col styled-article'>
+            <link
+                rel='preload'
+                href='images/applause.gif'
+                as='image'
+                type='image/gif'
+            />
             <h3 className='mb-6 text-3xl text-center text-gray-800'>
                 Tack & Gybe Submission
             </h3>
