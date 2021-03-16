@@ -13,7 +13,7 @@ function Input(props: {
         <input
             className={
                 'bg-white rounded shadow outline-none focus:ring ring-blue-300 ' +
-                'mx-4 leading-9 py-1 px-3 col-span-4 font-weight-500 '
+                'md:mx-4 leading-9 py-1 px-3 col-span-5 md:col-span-4 font-weight-500 '
             }
             placeholder={props.placeholder}
             value={props.value}
@@ -25,7 +25,13 @@ function Input(props: {
 
 function Label(props: { children: string }) {
     return (
-        <label className='flex flex-row items-center justify-end col-span-1 font-weight-700'>
+        <label
+            className={
+                'flex flex-row items-center font-weight-700 ' +
+                'justify-start pl-1 pt-6 col-span-5 ' +
+                'md:justify-end md:col-span-1 '
+            }
+        >
             {props.children}
         </label>
     );
@@ -72,11 +78,17 @@ export default function Page() {
             <h3 className='mb-6 text-3xl text-center text-gray-800'>
                 Tack & Gybe Submission
             </h3>
-            <div className='grid grid-cols-5 mx-4 mb-6 text-gray-700 bg-white rounded shadow'>
-                <h4 className='flex flex-row items-center justify-end w-full h-full col-span-1 pr-4 text-right'>
+            <div className='grid grid-cols-5 mb-4 text-gray-700 bg-white rounded shadow md:mx-4 md:mb-6'>
+                <h4
+                    className={
+                        'flex flex-row items-center w-full h-full ' +
+                        'justify-center col-span-5 pt-4 ' +
+                        'md:justify-end md:col-span-1 md:pt-0 md:pr-4'
+                    }
+                >
                     Some Notes
                 </h4>
-                <div className='col-span-4 px-4 py-4 mb-0 text-gray-700 font-weight-500'>
+                <div className='col-span-5 px-4 py-4 mb-0 text-gray-700 md:col-span-4 font-weight-500'>
                     <p className='mb-3'>
                         We need your email in order to contact you about any
                         issues regarding the submission.
@@ -103,7 +115,7 @@ export default function Page() {
                 </div>
             </div>
             <div />
-            <div className='grid w-full grid-cols-5 space-y-2 text-lg text-gray-800'>
+            <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-2'>
                 <Label>Your Email</Label>
                 <Input
                     placeholder='yourname@smthn.com'
@@ -147,7 +159,7 @@ export default function Page() {
                     disabled={submitting}
                 />
             </div>
-            <div className='mt-6 space-x-2 centering-row'>
+            <div className='pt-10 space-x-2 md:pt-6 centering-row'>
                 <Link to='/rules'>
                     <div
                         className={
