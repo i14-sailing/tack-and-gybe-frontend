@@ -1,4 +1,9 @@
+// prettier-ignore
+require('dotenv').config({
+    path: `.env`,
+});
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     future: {
@@ -6,7 +11,7 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: {
-        enabled: true,
+        enabled: process.env.PURGE_TAILWIND === "true",
         content: [
             './src/**/*.js',
             './src/**/*.jsx',
@@ -15,13 +20,24 @@ module.exports = {
         ],
     },
     theme: {
+        screens: {
+            'xs': '475px',
+            ...defaultTheme.screens,
+        },
         extend: {
+            gridTemplateColumns: {
+                '16': 'repeat(16, minmax(0, 1fr))',
+            },
             colors: {
                 transparent: 'transparent',
                 current: 'currentColor',
                 gray: colors.blueGray,
                 teal: colors.teal,
                 red: colors.red,
+                rose: colors.rose,
+                emerald: colors.emerald,
+                teal: colors.teal,
+                blue: colors.blue,
             },
             spacing: {
                   '5vh':   '5vh',
@@ -83,6 +99,8 @@ module.exports = {
                 '128': '32.0rem',
                 '130': '32.5rem',
                 '132': '33.0rem',
+                '192': '48.0rem',
+                '256': '64.0rem',
             },
         },
     },

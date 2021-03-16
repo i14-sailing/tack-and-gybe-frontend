@@ -1,8 +1,14 @@
 {
   "name": "tack-and-gybe-frontend",
   "description": "Gatsby/TailwindCSS frontend for the I14 Tack and Gybe Challenge",
+  "version": "0.2.0",
+  "author": {
+    "name": "Moritz Makowski",
+    "email": "moritz@dostuffthatmatters.dev"
+  },
+  "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run build:tailwind && gatsby build",
     "build:tailwind": "tailwind build src/styles/tailwind.css -o src/styles/tailwind.out.css",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -14,20 +20,20 @@
   "dependencies": {
     "@types/lodash": "^4.14.167",
     "@types/react-helmet": "^6.1.0",
+    "autoprefixer": "^10.2.1",
     "gatsby": "^2.26.1",
     "gatsby-plugin-layout": "^1.8.0",
     "gatsby-plugin-react-helmet": "^3.8.0",
     "gatsby-source-strapi": "^0.0.12",
     "lodash": "^4.17.20",
+    "postcss": "^8.2.4",
+    "prettier": "2.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.0.2",
     "typeface-libre-franklin": "^1.1.13",
     "typeface-quicksand": "^1.1.13",
-    "autoprefixer": "^10.2.1",
-    "postcss": "^8.2.4",
-    "prettier": "2.2.1",
-    "tailwindcss": "^2.0.2",
     "typescript": "^4.1.3"
   }
 }

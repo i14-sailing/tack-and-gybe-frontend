@@ -4,11 +4,28 @@ import Header from './header';
 import { Helmet } from 'react-helmet';
 
 export default function Layout({ children, location }) {
+    let body;
+
+    if (
+        location.pathname.includes('submit') ||
+        location.pathname.includes('success')
+    ) {
+        body = <main className='w-full'>{children}</main>;
+    } else {
+        body = (
+            <>
+                <Header url={location.pathname} />
+                <main className='w-full'>{children}</main>
+                <div className='self-stretch flex-grow' />
+                <Footer />
+            </>
+        );
+    }
     return (
         <div
             className={
-                'relative top-0 flex flex-col w-full min-h-screen bg-gray-100 ' +
-                'px-5vw xl:px-15vw 2xl:px-25vw '
+                'relative top-0 w-full min-h-screen bg-gray-100 ' +
+                'centering-col px-5vw xl:px-15vw 2xl:px-25vw '
             }
         >
             <Helmet>
@@ -31,10 +48,7 @@ export default function Layout({ children, location }) {
                     content='https://tack-and-gybe.dostuffthatmatters.dev'
                 />
             </Helmet>
-            <Header url={location.pathname} />
-            <main>{children}</main>
-            <div className='self-stretch flex-grow' />
-            <Footer />
+            {body}
         </div>
     );
 }

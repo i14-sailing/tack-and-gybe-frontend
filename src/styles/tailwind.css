@@ -64,71 +64,84 @@ svg {
     width: 100%;
 }
 
-h1 {
+.styled-article h1 {
     @apply text-5xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h2 {
+.styled-article h2 {
     @apply text-4xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h3 {
+.styled-article h3 {
     @apply text-3xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h4 {
+.styled-article h4 {
     @apply text-2xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-h5 {
+.styled-article h5 {
     @apply text-xl;
-    @apply mb-4;
     @apply font-weight-600;
 }
 
-main p {
-    @apply text-xl;
-    @apply mb-4;
+.styled-article p {
+    @apply text-lg;
     @apply text-justify;
-    @apply font-weight-400;
+    @apply font-weight-500;
     @apply text-gray-900;
 }
 
-main p a {
-    @apply text-xl;
-    @apply mb-4;
+.styled-article p a {
+    @apply text-lg;
     @apply text-justify;
-    @apply text-teal-500;
+    @apply text-blue-500;
     @apply font-weight-600;
 }
 
-main strong {
-    @apply font-weight-600;
-}
-
-main h1 {
+.styled-article h1 {
     @apply w-full;
     @apply leading-tight;
     @apply text-center;
-    @apply mb-8;
 }
 
-main h2 {
-    @apply mt-8;
+.styled-article h2 {
     @apply w-full;
     @apply text-center;
     @apply leading-tight;
 }
 
-blurred-image {
+strong {
+    @apply font-weight-600;
+}
+
+.blurred-image {
     -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
     filter: blur(4px);
 }
+
+.centering-row {
+   @apply flex;
+   @apply flex-row;
+   @apply items-center;
+   @apply justify-center;
+}
+
+.centering-col {
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+ }
+
+ .absolute-full {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+ }
