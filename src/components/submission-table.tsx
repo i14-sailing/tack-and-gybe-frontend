@@ -136,6 +136,7 @@ function TableRow(props: {
                             'rounded-sm ring-1 xs:ring-2 ring-gray-300'
                         }
                         src={`./flags/${props.submission.country}_Flag_200w.png`}
+                        alt={`${props.submission.country} flag`}
                     />
                 </div>
                 <div
