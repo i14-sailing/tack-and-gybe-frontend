@@ -28,7 +28,11 @@ export default function Layout({ children, location }) {
                 'centering-col px-5vw xl:px-15vw 2xl:px-25vw '
             }
         >
-            <Helmet>
+            <Helmet
+                htmlAttributes={{
+                    lang: 'en',
+                }}
+            >
                 <meta charSet='utf-8' />
                 <title>Tack & Gybe</title>
                 <meta name='description' content='Helmet application' />
