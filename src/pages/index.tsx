@@ -89,7 +89,7 @@ export default function Home() {
             {body}
 
             <Link to='/rules'>
-                <div className='w-full mt-8 text-lg text-center text-gray-800 cursor-pointer hover:text-red-400 font-weight-700'>
+                <div className='w-full mt-8 text-lg text-center text-gray-800 cursor-pointer hover:text-rose-600 font-weight-700'>
                     Be a part of it!
                 </div>
             </Link>

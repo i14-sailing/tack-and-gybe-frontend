@@ -8,13 +8,13 @@ export default function Home() {
                 Nothing here
                 <img
                     className='inline w-8 h-8 ml-1'
-                    src='./emojis/ghost-emoji.svg'
+                    src='/emojis/ghost-emoji.svg'
                     alt='Ghost emoji'
                 />
             </div>
             <Link
                 to='/'
-                className='transition-colors duration-100 font-weight-700 hover:text-red-400'
+                className='transition-colors duration-100 font-weight-700 hover:text-rose-600'
             >
                 Go back to main page
             </Link>

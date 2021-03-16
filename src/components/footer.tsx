@@ -2,12 +2,12 @@ import React from 'react';
 import ICONS from '../utils/icons';
 
 const linkColors =
-    'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
+    'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-rose-600';
 
 const BuiltWithLove = (
     <div className='flex flex-row items-center self-center justify-center text-gray-800'>
         <span>built with</span>
-        <div className='w-5 h-5 mx-1 text-red-400' title='love'>
+        <div className='w-5 h-5 mx-1 text-rose-400' title='love'>
             {ICONS.heart}
         </div>
         <span>in munich</span>
