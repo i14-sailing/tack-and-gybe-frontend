@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
-import icons from '../utils/icons';
+import ICONS from '../utils/icons';
 import { navigate } from 'gatsby';
 
 function Input(props: {
@@ -185,7 +185,7 @@ export default function Page() {
                             (submitting ? 'opacity-100 ' : 'opacity-0 ')
                         }
                     >
-                        <div className='w-6 h-6 animate-spin'>{icons.loop}</div>
+                        <div className='w-6 h-6 animate-spin'>{ICONS.loop}</div>
                     </div>
                 </button>
             </div>

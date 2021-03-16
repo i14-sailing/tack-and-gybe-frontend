@@ -1,5 +1,5 @@
 import React from 'react';
-import icons from '../utils/icons';
+import ICONS from '../utils/icons';
 
 const linkColors =
     'text-gray-600 transition-colors duration-100 cursor-pointer hover:text-red-400';
@@ -8,7 +8,7 @@ const BuiltWithLove = (
     <div className='flex flex-row items-center self-center justify-center text-gray-800'>
         <span>built with</span>
         <div className='w-5 h-5 mx-1 text-red-400' title='love'>
-            {icons.heart}
+            {ICONS.heart}
         </div>
         <span>in munich</span>
     </div>
@@ -23,7 +23,7 @@ const Buttons = (
             className='mr-2'
             title='Admin Login'
         >
-            <div className={`w-5 h-5 ${linkColors}`}>{icons.addVideo}</div>
+            <div className={`w-5 h-5 ${linkColors}`}>{ICONS.addVideo}</div>
         </a>
         <a
             href='https://github.com/i14sailing/tack-and-gybe-frontend'
@@ -31,7 +31,7 @@ const Buttons = (
             rel='noopener noreferrer'
             title='Code on GitHub'
         >
-            <div className={`w-5 h-5 ${linkColors}`}>{icons.github}</div>
+            <div className={`w-5 h-5 ${linkColors}`}>{ICONS.github}</div>
         </a>
     </>
 );

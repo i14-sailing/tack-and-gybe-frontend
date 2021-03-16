@@ -74,7 +74,12 @@ export default function Home() {
             })
         );
 
-        body = <SubmissionTable submissions={diffedSubmissions} />;
+        body = (
+            <SubmissionTable
+                submissions={diffedSubmissions}
+                tackTab={tackTab}
+            />
+        );
     }
 
     return (

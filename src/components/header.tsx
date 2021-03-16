@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import icons from '../utils/icons';
+import ICONS from '../utils/icons';
 
 const linkColors =
     'text-gray-700 transition-colors duration-100 cursor-pointer hover:text-rose-600';
@@ -9,7 +9,7 @@ const absolute = 'absolute left-0 transform -translate-y-1/2';
 
 const I14Link = (
     <Link to='/' className={`${absolute} left-0 top-1/2 hidden md:block`}>
-        <div className={`w-8 h-8 ${linkColors}`}>{icons.i14}</div>
+        <div className={`w-8 h-8 ${linkColors}`}>{ICONS.i14}</div>
     </Link>
 );
 

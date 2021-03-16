@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { RenderSubmissionNode } from '../utils/types';
 import { padStart } from 'lodash';
+import ICONS from '../utils/icons';
 
-function SubmissionTable(props: { submissions: RenderSubmissionNode[] }) {
+function SubmissionTable(props: {
+    submissions: RenderSubmissionNode[];
+    tackTab: boolean;
+}) {
     return (
         <div className={'w-full centering-col bg-white rounded shadow'}>
             {props.submissions.map((s: RenderSubmissionNode, i: number) => (
-                <TableRow submission={s} key={s.youtubeVideoId} index={i} />
+                <TableRow
+                    submission={s}
+                    key={s.youtubeVideoId}
+                    index={i}
+                    tackTab={props.tackTab}
+                />
             ))}
         </div>
     );
@@ -21,7 +30,11 @@ function timeToStr(time: number, literal: boolean) {
     );
 }
 
-function TableRow(props: { submission: RenderSubmissionNode; index: number }) {
+function TableRow(props: {
+    submission: RenderSubmissionNode;
+    index: number;
+    tackTab: boolean;
+}) {
     const [videoMounted, setVideoMounted] = useState(false);
 
     return (
@@ -32,12 +45,25 @@ function TableRow(props: { submission: RenderSubmissionNode; index: number }) {
                         className='z-0 absolute-full'
                         onClick={() => setVideoMounted(false)}
                     />
-                    <div className='z-10 overflow-hidden text-lg text-white bg-gray-900 rounded-lg shadow centering-col'>
-                        <div className='w-full p-4 space-x-8 text-2xl centering-row font-weight-500'>
-                            <div>
-                                3 Tacks on "{props.submission.boatsName}" (
+                    <div className='relative z-10 overflow-hidden text-lg text-white bg-gray-900 rounded-lg shadow centering-col'>
+                        <div className='w-full p-4 space-x-8 text-2xl centering-row font-weight-400'>
+                            <div className='w-7 h-7' />
+                            <div className='self-stretch flex-grow' />
+                            <div className='text-center w-128'>
+                                3{' '}
+                                <strong className='text-rose-600'>
+                                    {props.tackTab ? 'Tacks' : 'Gybes'}
+                                </strong>{' '}
+                                on "{props.submission.boatsName}" (
                                 {props.submission.country}{' '}
                                 {props.submission.sailNumber})
+                            </div>
+                            <div className='self-stretch flex-grow' />
+                            <div
+                                className='text-white cursor-pointer w-7 h-7'
+                                onClick={() => setVideoMounted(false)}
+                            >
+                                {ICONS.close}
                             </div>
                         </div>
                         <div
