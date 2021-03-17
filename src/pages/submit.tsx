@@ -8,6 +8,8 @@ function Input(props: {
     value: string;
     setValue(s: string): void;
     disabled?: boolean;
+    type?: string;
+    id: string;
 }) {
     return (
         <input
@@ -19,11 +21,13 @@ function Input(props: {
             value={props.value}
             onChange={(e: any) => props.setValue(e.target.value)}
             disabled={props.disabled}
+            type={props.type ? props.type : 'text'}
+            id={props.id}
         />
     );
 }
 
-function Label(props: { children: string }) {
+function Label(props: { children: string; for: string }) {
     return (
         <label
             className={
@@ -31,6 +35,7 @@ function Label(props: { children: string }) {
                 'justify-start pl-1 pt-6 col-span-5 ' +
                 'md:justify-end md:col-span-1 md:pl-0 md:pt-0 '
             }
+            htmlFor={props.for}
         >
             {props.children}
         </label>
@@ -84,6 +89,12 @@ export default function Page() {
 
     return (
         <div className='my-12 centering-col styled-article'>
+            <link
+                rel='preload'
+                href='images/applause.gif'
+                as='image'
+                type='image/gif'
+            />
             <h3 className='mb-6 text-3xl text-center text-gray-800'>
                 Tack & Gybe Submission
             </h3>
@@ -126,47 +137,54 @@ export default function Page() {
             <div />
             <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-3'>
                 <div className='hidden' />
-                <Label>Your Email</Label>
+                <Label for='emailInput'>Your Email</Label>
                 <Input
                     placeholder='yourname@smthn.com'
                     value={email}
                     setValue={setEmail}
                     disabled={submitting}
+                    type='email'
+                    id='emailInput'
                 />
-                <Label>Boatsname</Label>
+                <Label for='boatsnameInput'>Boatsname</Label>
                 <Input
                     placeholder='something cool'
                     value={boatsname}
                     setValue={setBoatsname}
                     disabled={submitting}
+                    id='boatsnameInput'
                 />
-                <Label>Sailnumber</Label>
+                <Label for='sailnumberInput'>Sailnumber</Label>
                 <Input
                     placeholder='GER 123'
                     value={sailnumber}
                     setValue={setSailnumber}
                     disabled={submitting}
+                    id='sailnumberInput'
                 />
-                <Label>Tack-Video</Label>
+                <Label for='tackVideoInput'>Tack-Video</Label>
                 <Input
                     placeholder='YouTube Video-URL'
                     value={tackVideoURL}
                     setValue={setTackVideoURL}
                     disabled={submitting}
+                    id='tackVideoInput'
                 />
-                <Label>Gybe-Video</Label>
+                <Label for='gybeVideoInput'>Gybe-Video</Label>
                 <Input
                     placeholder='YouTube Video-URL'
                     value={gybeVideoURL}
                     setValue={setGybeVideoURL}
                     disabled={submitting}
+                    id='gybeVideoInput'
                 />
-                <Label>Additional Notes</Label>
+                <Label for='notesInput'>Additional Notes</Label>
                 <Input
                     placeholder='optional, e.g. "Updated submission ..."'
                     value={notes}
                     setValue={setNotes}
                     disabled={submitting}
+                    id='notesInput'
                 />
             </div>
             <div className='pt-10 space-x-2 md:pt-6 centering-row'>
@@ -220,8 +238,8 @@ export default function Page() {
                     (entryValid() ? 'opacity-0 ' : 'opacity-100 ')
                 }
             >
-                Required Fields: Email, Boatsname, Sailnumber at least one video
-                link.
+                Required Fields: Email, Boatsname, Sailnumber and at least one
+                video link.
             </div>
         </div>
     );

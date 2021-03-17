@@ -9,7 +9,7 @@ export default function Home() {
                 <img
                     className='inline w-8 h-8 ml-1'
                     src='/emojis/ghost-emoji.svg'
-                    alt='Ghost emoji'
+                    alt='ghost emoji'
                 />
             </div>
             <Link

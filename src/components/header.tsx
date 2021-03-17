@@ -88,7 +88,7 @@ function Header(props: Props) {
                         'mr-1 text-3xl leading-10 text-gray-700 font-weight-700'
                     }
                 >
-                    I14 Tack & Gybe
+                    Tack & Gybe
                 </div>
                 <div
                     className={

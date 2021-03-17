@@ -30,6 +30,7 @@ export default function Page() {
                 <img
                     className='hidden w-1/2 pl-8 my-auto h-80 md:block'
                     src='/images/golden-gate.svg'
+                    alt='golden gate bridge'
                 />
             </div>
 
@@ -39,6 +40,7 @@ export default function Page() {
                 <img
                     className='inline w-8 h-8 ml-1'
                     src='/emojis/wink-emoji.svg'
+                    alt='wink emoji'
                 />
             </p>
 
@@ -46,6 +48,7 @@ export default function Page() {
                 <img
                     className='hidden w-1/2 pr-8 my-auto h-60 md:block'
                     src='/images/online-video.svg'
+                    alt='online video upload'
                 />
                 <div className='flex flex-col w-full mt-8 md:mt-0 md:w-1/2 md:pl-8'>
                     <h4 className='mb-4 text-gray-800 font-weight-700'>
@@ -73,6 +76,7 @@ export default function Page() {
                 <img
                     className='inline w-8 h-8 ml-1'
                     src='/emojis/party-emoji.svg'
+                    alt='party emoji'
                 />
             </p>
         </div>
