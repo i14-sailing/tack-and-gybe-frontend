@@ -2,12 +2,11 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { sortBy } from 'lodash';
 import { QANode } from '../utils/types';
+import QABlock from '../components/qa-block';
 
 export default function Page() {
     const { allStrapiQuestionAndAnswer } = useStaticQuery(query);
     const { nodes: qaNodes } = allStrapiQuestionAndAnswer;
-
-    console.log(qaNodes);
 
     return (
         <div className='w-full space-y-4 centering-col styled-article'>
@@ -59,6 +58,8 @@ export default function Page() {
                     alt='party emoji'
                 />
             </p>
+
+            <QABlock qaNodes={sortBy(qaNodes, ['order', 'question'])} />
         </div>
     );
 }
