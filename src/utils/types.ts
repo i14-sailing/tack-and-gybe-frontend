@@ -55,3 +55,9 @@ export interface RenderSubmissionNode extends ReducedSubmissionNode {
     time: number;
     diff: number;
 }
+
+export type QANode = {
+    question: string;
+    answer: string;
+    order: number;
+};

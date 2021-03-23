@@ -1,7 +1,14 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import { sortBy } from 'lodash';
+import { QANode } from '../utils/types';
 
 export default function Page() {
+    const { allStrapiQuestionAndAnswer } = useStaticQuery(query);
+    const { nodes: qaNodes } = allStrapiQuestionAndAnswer;
+
+    console.log(qaNodes);
+
     return (
         <div className='w-full space-y-4 centering-col styled-article'>
             <div className='w-full p-6 bg-white rounded shadow centering-col'>
@@ -55,3 +62,15 @@ export default function Page() {
         </div>
     );
 }
+
+const query = graphql`
+    query MyQuery2 {
+        allStrapiQuestionAndAnswer {
+            nodes {
+                question
+                answer
+                order
+            }
+        }
+    }
+`;
