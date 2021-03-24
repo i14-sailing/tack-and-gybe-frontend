@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build:tailwind && gatsby build",
     "build:tailwind": "tailwind build src/styles/tailwind.css -o src/styles/tailwind.out.css",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

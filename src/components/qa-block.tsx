@@ -49,10 +49,10 @@ function QARow(props: { first: boolean; last: boolean; qaNode: QANode }) {
             </div>
             <p
                 className={
-                    `pl-4 pr-18 overflow-scroll ${TRANSITION} ` +
+                    `pl-4 pr-18 overflow-x-hidden overflow-y-scroll ${TRANSITION} ` +
                     'opacity-90 ' +
                     (open
-                        ? 'max-h-32 pb-4 pt-1 md:pt-0 '
+                        ? 'max-h-64 md:max-h-32 pb-4 pt-1 md:pt-0 '
                         : 'max-h-0 pb-0 pt-0 ')
                 }
                 style={{ textAlign: 'left' }}
