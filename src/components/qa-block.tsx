@@ -27,18 +27,18 @@ function QARow(props: { first: boolean; last: boolean; qaNode: QANode }) {
         >
             <div
                 className={
-                    'w-full h-18 sm:h-12 text-base cursor-pointer text-gray-800 ' +
+                    'w-full h-18 sm:h-14 text-base cursor-pointer text-gray-800 ' +
                     'flex flex-row items-center justify-center font-weight-500 '
                 }
                 onClick={() => setOpen(!open)}
             >
-                <div className='relative flex flex-col ml-4 sm:flex-row'>
+                <div className='relative flex flex-col ml-4 text-lg opacity-75 sm:flex-row font-weight-600'>
                     {props.qaNode.question}
                 </div>
                 <div className='self-stretch flex-grow block' />
                 <div
                     className={
-                        'w-12 h-12 p-3 text-gray-500 ' +
+                        'w-14 h-14 p-4 opacity-50 ' +
                         `transform ${TRANSITION} ` +
                         (open ? 'rotate-180 ' : 'rotate-0 ')
                     }
@@ -46,15 +46,17 @@ function QARow(props: { first: boolean; last: boolean; qaNode: QANode }) {
                     {ICONS.expand_more}
                 </div>
             </div>
-            <div
+            <p
                 className={
-                    `px-4 text-lg overflow-hidden origin-top ${TRANSITION} ` +
-                    'flex flex-col items-center justify-start gap-y-4 space-y-4 ' +
-                    (open ? 'max-h-108 sm:max-h-72 my-4 ' : 'max-h-0 py-0 ')
+                    `pl-4 pr-18 overflow-scroll ${TRANSITION} ` +
+                    'opacity-90 ' +
+                    (open ? 'max-h-32 pb-4 ' : 'max-h-0 pb-0 ')
                 }
-            >
-                {props.qaNode.answer}
-            </div>
+                style={{ textAlign: 'left' }}
+                dangerouslySetInnerHTML={{
+                    __html: props.qaNode.answer.replace('\n', '<br/>'),
+                }}
+            />
         </div>
     );
 }
@@ -66,7 +68,8 @@ export default function QABlock(props: { qaNodes: QANode[] }) {
                 <QARow
                     qaNode={n}
                     first={i == 0}
-                    last={i == props.qaNodes.length}
+                    last={i == props.qaNodes.length - 1}
+                    key={n.question}
                 />
             ))}
         </div>

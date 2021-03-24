@@ -9,7 +9,7 @@ export default function Page() {
     const { nodes: qaNodes } = allStrapiQuestionAndAnswer;
 
     return (
-        <div className='w-full space-y-4 centering-col styled-article'>
+        <div className='w-full mb-16 space-y-4 centering-col styled-article'>
             <div className='w-full p-6 bg-white rounded shadow centering-col'>
                 <div className='w-full mb-12 centering-row'>
                     <div className='w-50% text-2xl text-center text-rose-600 font-weight-700'>
