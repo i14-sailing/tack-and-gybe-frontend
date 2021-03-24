@@ -13,6 +13,7 @@ function QARow(props: { first: boolean; last: boolean; qaNode: QANode }) {
 
     return (
         <div
+            id='questions-and-answers'
             className={
                 'relative flex flex-col w-full bg-white z-10 shadow ' +
                 (props.first ? 'rounded-t ' : '') +

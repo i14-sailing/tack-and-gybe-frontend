@@ -95,46 +95,16 @@ export default function Page() {
                 as='image'
                 type='image/gif'
             />
+            <Link
+                className='mb-1 text-lg italic text-blue-600 font-weight-600'
+                to='/rules#questions-and-answers'
+            >
+                Read Q&A
+            </Link>
             <h3 className='mb-6 text-3xl text-center text-gray-800'>
-                Tack & Gybe Submission
+                Tack & Gybe Submission{' '}
             </h3>
-            <div className='grid grid-cols-5 mb-4 text-gray-700 bg-white rounded shadow md:mx-4 md:mb-6'>
-                <h4
-                    className={
-                        'flex flex-row items-center w-full h-full ' +
-                        'justify-center col-span-5 pt-4 ' +
-                        'md:justify-end md:col-span-1 md:pt-0 md:pr-4'
-                    }
-                >
-                    Some Notes
-                </h4>
-                <div className='col-span-5 px-4 py-4 mb-0 text-gray-700 md:col-span-4 font-weight-500'>
-                    <p className='mb-3'>
-                        We need your email in order to contact you about any
-                        issues regarding the submission.
-                    </p>
-                    <p className='mb-3'>
-                        The YouTube Video-URLs look like this:{' '}
-                        <span className='text-blue-500 break-all font-weight-600'>
-                            https://www.youtube.com/watch?v=123...
-                        </span>{' '}
-                        or{' '}
-                        <span className='text-blue-500 break-all font-weight-600'>
-                            https://youtu.be/123...
-                        </span>
-                    </p>
-                    <p className='mb-3'>
-                        If you only want to participate in one of the
-                        challenges, leave the corresponding video-field empty.
-                    </p>
-                    <p>
-                        In case you have already submitted a video and want to
-                        update it or add the second one, just mention that in
-                        the "Additional Notes" section.
-                    </p>
-                </div>
-            </div>
-            <div />
+
             <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-3'>
                 <div className='hidden' />
                 <Label for='emailInput'>Your Email</Label>
