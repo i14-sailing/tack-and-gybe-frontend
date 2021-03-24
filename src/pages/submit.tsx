@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import ICONS from '../utils/icons';
 import { navigate } from 'gatsby';
 
-function Input(props: {
+function InputRow(props: {
+    label: string;
     placeholder: string;
     value: string;
     setValue(s: string): void;
@@ -12,33 +13,29 @@ function Input(props: {
     id: string;
 }) {
     return (
-        <input
-            className={
-                'bg-white rounded shadow outline-none focus:ring ring-blue-300 ' +
-                'md:mx-4 leading-9 py-1 px-3 col-span-5 md:col-span-4 font-weight-500 '
-            }
-            placeholder={props.placeholder}
-            value={props.value}
-            onChange={(e: any) => props.setValue(e.target.value)}
-            disabled={props.disabled}
-            type={props.type ? props.type : 'text'}
-            id={props.id}
-        />
-    );
-}
-
-function Label(props: { children: string; for: string }) {
-    return (
-        <label
-            className={
-                'flex flex-row items-center font-weight-700 ' +
-                'justify-start pl-1 pt-6 col-span-5 ' +
-                'md:justify-end md:col-span-1 md:pl-0 md:pt-0 '
-            }
-            htmlFor={props.for}
-        >
-            {props.children}
-        </label>
+        <div className='w-full group centering-col'>
+            <label
+                className={
+                    'flex flex-row items-center font-weight-700 ' +
+                    'justify-start w-full text-base pb-1'
+                }
+                htmlFor={props.id}
+            >
+                {props.label}
+            </label>
+            <input
+                className={
+                    'bg-white rounded shadow outline-none focus:ring ring-blue-300 ' +
+                    'w-full leading-9 py-1 px-3 font-weight-500 '
+                }
+                placeholder={props.placeholder}
+                value={props.value}
+                onChange={(e: any) => props.setValue(e.target.value)}
+                disabled={props.disabled}
+                type={props.type ? props.type : 'text'}
+                id={props.id}
+            />
+        </div>
     );
 }
 
@@ -105,10 +102,9 @@ export default function Page() {
                 Tack & Gybe Submission{' '}
             </h3>
 
-            <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-3'>
-                <div className='hidden' />
-                <Label for='emailInput'>Your Email</Label>
-                <Input
+            <div className='w-full max-w-md mb-4 space-y-3 text-lg text-gray-800 centering-col'>
+                <InputRow
+                    label='Your Email'
                     placeholder='yourname@smthn.com'
                     value={email}
                     setValue={setEmail}
@@ -116,40 +112,40 @@ export default function Page() {
                     type='email'
                     id='emailInput'
                 />
-                <Label for='boatsnameInput'>Boatsname</Label>
-                <Input
+                <InputRow
+                    label='Boatsname'
                     placeholder='something cool'
                     value={boatsname}
                     setValue={setBoatsname}
                     disabled={submitting}
                     id='boatsnameInput'
                 />
-                <Label for='sailnumberInput'>Sailnumber</Label>
-                <Input
+                <InputRow
+                    label='Sailnumber'
                     placeholder='GER 123'
                     value={sailnumber}
                     setValue={setSailnumber}
                     disabled={submitting}
                     id='sailnumberInput'
                 />
-                <Label for='tackVideoInput'>Tack-Video</Label>
-                <Input
+                <InputRow
+                    label='Tack-Video'
                     placeholder='YouTube Video-URL'
                     value={tackVideoURL}
                     setValue={setTackVideoURL}
                     disabled={submitting}
                     id='tackVideoInput'
                 />
-                <Label for='gybeVideoInput'>Gybe-Video</Label>
-                <Input
+                <InputRow
+                    label='Gybe-Video'
                     placeholder='YouTube Video-URL'
                     value={gybeVideoURL}
                     setValue={setGybeVideoURL}
                     disabled={submitting}
                     id='gybeVideoInput'
                 />
-                <Label for='notesInput'>Additional Notes</Label>
-                <Input
+                <InputRow
+                    label='Additional Notes'
                     placeholder='optional, e.g. "Updated submission ..."'
                     value={notes}
                     setValue={setNotes}
