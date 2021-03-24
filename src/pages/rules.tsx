@@ -11,11 +11,11 @@ export default function Page() {
     return (
         <div className='w-full mb-16 space-y-4 centering-col styled-article'>
             <div className='w-full p-6 bg-white rounded shadow centering-col'>
-                <div className='w-full mb-12 centering-row'>
-                    <div className='w-50% text-2xl text-center text-rose-600 font-weight-700'>
+                <div className='w-full mb-8 md:mb-12 centering-col md:flex-row'>
+                    <div className='w-full mb-4 md:mb-0 md:w-50% text-2xl text-center text-rose-600 font-weight-700'>
                         The Challenge
                     </div>
-                    <div className='w-50% flex flex-col item-center justify-start mx-8 space-y-3'>
+                    <div className='w-full md:w-50% flex flex-col item-center justify-start mx-8 space-y-3'>
                         <p className=''>
                             Perform <strong>3 tacks and/or 3 gybes</strong> in
                             the shortest amount of time possible.
@@ -33,11 +33,11 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className='w-full centering-row'>
-                    <div className='w-50% text-2xl text-center text-gray-800 opacity-75 font-weight-700'>
+                <div className='w-full centering-col md:flex-row'>
+                    <div className='w-full mb-4 md:mb-0 md:w-50% text-2xl text-center text-gray-800 opacity-75 font-weight-700'>
                         How do I Take Part?
                     </div>
-                    <div className='w-50% flex flex-col item-center justify-start mx-8 space-y-3'>
+                    <div className='w-full md:w-50% flex flex-col item-center justify-start mx-8 space-y-3'>
                         <p className=''>
                             1. Perform your business and record it on video
                         </p>
