@@ -3,42 +3,49 @@ import React, { useState } from 'react';
 import ICONS from '../utils/icons';
 import { navigate } from 'gatsby';
 
-function Input(props: {
+function InputRow(props: {
+    label: string;
     placeholder: string;
     value: string;
     setValue(s: string): void;
     disabled?: boolean;
     type?: string;
     id: string;
+    autoFocus?: boolean;
 }) {
-    return (
-        <input
-            className={
-                'bg-white rounded shadow outline-none focus:ring ring-blue-300 ' +
-                'md:mx-4 leading-9 py-1 px-3 col-span-5 md:col-span-4 font-weight-500 '
-            }
-            placeholder={props.placeholder}
-            value={props.value}
-            onChange={(e: any) => props.setValue(e.target.value)}
-            disabled={props.disabled}
-            type={props.type ? props.type : 'text'}
-            id={props.id}
-        />
-    );
-}
+    const [focused, setFocus] = useState(false);
 
-function Label(props: { children: string; for: string }) {
     return (
-        <label
-            className={
-                'flex flex-row items-center font-weight-700 ' +
-                'justify-start pl-1 pt-6 col-span-5 ' +
-                'md:justify-end md:col-span-1 md:pl-0 md:pt-0 '
-            }
-            htmlFor={props.for}
-        >
-            {props.children}
-        </label>
+        <div className='w-full group centering-col'>
+            <label
+                className={
+                    'flex flex-row items-center font-weight-700 ' +
+                    'justify-start w-full text-base pb-1 ' +
+                    (focused ? 'opacity-100 ' : 'opacity-70 ') +
+                    'transition-opacity duration-150'
+                }
+                htmlFor={props.id}
+            >
+                {props.label}
+            </label>
+            <input
+                className={
+                    'bg-white rounded shadow outline-none ring ring-blue-300 ' +
+                    'w-full leading-9 py-1 px-3 font-weight-500 ' +
+                    'focus:ring-opacity-100 ring-opacity-0 ' +
+                    'transition-all duration-150'
+                }
+                placeholder={props.placeholder}
+                value={props.value}
+                onChange={(e: any) => props.setValue(e.target.value)}
+                disabled={props.disabled}
+                type={props.type ? props.type : 'text'}
+                id={props.id}
+                onFocus={() => setFocus(true)}
+                onBlur={() => setFocus(false)}
+                autoFocus={props.autoFocus}
+            />
+        </div>
     );
 }
 
@@ -95,91 +102,61 @@ export default function Page() {
                 as='image'
                 type='image/gif'
             />
+            <Link
+                className='mb-1 text-lg italic text-blue-600 font-weight-600'
+                to='/rules#questions-and-answers'
+            >
+                Read Q&A
+            </Link>
             <h3 className='mb-6 text-3xl text-center text-gray-800'>
-                Tack & Gybe Submission
+                Tack & Gybe Submission{' '}
             </h3>
-            <div className='grid grid-cols-5 mb-4 text-gray-700 bg-white rounded shadow md:mx-4 md:mb-6'>
-                <h4
-                    className={
-                        'flex flex-row items-center w-full h-full ' +
-                        'justify-center col-span-5 pt-4 ' +
-                        'md:justify-end md:col-span-1 md:pt-0 md:pr-4'
-                    }
-                >
-                    Some Notes
-                </h4>
-                <div className='col-span-5 px-4 py-4 mb-0 text-gray-700 md:col-span-4 font-weight-500'>
-                    <p className='mb-3'>
-                        We need your email in order to contact you about any
-                        issues regarding the submission.
-                    </p>
-                    <p className='mb-3'>
-                        The YouTube Video-URLs look like this:{' '}
-                        <span className='text-blue-500 break-all font-weight-600'>
-                            https://www.youtube.com/watch?v=123...
-                        </span>{' '}
-                        or{' '}
-                        <span className='text-blue-500 break-all font-weight-600'>
-                            https://youtu.be/123...
-                        </span>
-                    </p>
-                    <p className='mb-3'>
-                        If you only want to participate in one of the
-                        challenges, leave the corresponding video-field empty.
-                    </p>
-                    <p>
-                        In case you have already submitted a video and want to
-                        update it or add the second one, just mention that in
-                        the "Additional Notes" section.
-                    </p>
-                </div>
-            </div>
-            <div />
-            <div className='grid w-full grid-cols-5 space-y-1 text-lg text-gray-800 md:space-y-3'>
-                <div className='hidden' />
-                <Label for='emailInput'>Your Email</Label>
-                <Input
+
+            <div className='w-full max-w-md mb-4 space-y-4 text-lg text-gray-800 centering-col'>
+                <InputRow
+                    label='Your Email'
                     placeholder='yourname@smthn.com'
                     value={email}
                     setValue={setEmail}
                     disabled={submitting}
                     type='email'
                     id='emailInput'
+                    autoFocus
                 />
-                <Label for='boatsnameInput'>Boatsname</Label>
-                <Input
+                <InputRow
+                    label='Boatsname'
                     placeholder='something cool'
                     value={boatsname}
                     setValue={setBoatsname}
                     disabled={submitting}
                     id='boatsnameInput'
                 />
-                <Label for='sailnumberInput'>Sailnumber</Label>
-                <Input
+                <InputRow
+                    label='Sailnumber'
                     placeholder='GER 123'
                     value={sailnumber}
                     setValue={setSailnumber}
                     disabled={submitting}
                     id='sailnumberInput'
                 />
-                <Label for='tackVideoInput'>Tack-Video</Label>
-                <Input
+                <InputRow
+                    label='Tack-Video'
                     placeholder='YouTube Video-URL'
                     value={tackVideoURL}
                     setValue={setTackVideoURL}
                     disabled={submitting}
                     id='tackVideoInput'
                 />
-                <Label for='gybeVideoInput'>Gybe-Video</Label>
-                <Input
+                <InputRow
+                    label='Gybe-Video'
                     placeholder='YouTube Video-URL'
                     value={gybeVideoURL}
                     setValue={setGybeVideoURL}
                     disabled={submitting}
                     id='gybeVideoInput'
                 />
-                <Label for='notesInput'>Additional Notes</Label>
-                <Input
+                <InputRow
+                    label='Additional Notes'
                     placeholder='optional, e.g. "Updated submission ..."'
                     value={notes}
                     setValue={setNotes}
