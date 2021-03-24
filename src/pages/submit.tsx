@@ -11,13 +11,18 @@ function InputRow(props: {
     disabled?: boolean;
     type?: string;
     id: string;
+    autoFocus?: boolean;
 }) {
+    const [focused, setFocus] = useState(false);
+
     return (
         <div className='w-full group centering-col'>
             <label
                 className={
                     'flex flex-row items-center font-weight-700 ' +
-                    'justify-start w-full text-base pb-1'
+                    'justify-start w-full text-base pb-1 ' +
+                    (focused ? 'opacity-100 ' : 'opacity-70 ') +
+                    'transition-opacity duration-150'
                 }
                 htmlFor={props.id}
             >
@@ -25,8 +30,10 @@ function InputRow(props: {
             </label>
             <input
                 className={
-                    'bg-white rounded shadow outline-none focus:ring ring-blue-300 ' +
-                    'w-full leading-9 py-1 px-3 font-weight-500 '
+                    'bg-white rounded shadow outline-none ring ring-blue-300 ' +
+                    'w-full leading-9 py-1 px-3 font-weight-500 ' +
+                    'focus:ring-opacity-100 ring-opacity-0 ' +
+                    'transition-all duration-150'
                 }
                 placeholder={props.placeholder}
                 value={props.value}
@@ -34,6 +41,9 @@ function InputRow(props: {
                 disabled={props.disabled}
                 type={props.type ? props.type : 'text'}
                 id={props.id}
+                onFocus={() => setFocus(true)}
+                onBlur={() => setFocus(false)}
+                autoFocus={props.autoFocus}
             />
         </div>
     );
@@ -102,7 +112,7 @@ export default function Page() {
                 Tack & Gybe Submission{' '}
             </h3>
 
-            <div className='w-full max-w-md mb-4 space-y-3 text-lg text-gray-800 centering-col'>
+            <div className='w-full max-w-md mb-4 space-y-4 text-lg text-gray-800 centering-col'>
                 <InputRow
                     label='Your Email'
                     placeholder='yourname@smthn.com'
@@ -111,6 +121,7 @@ export default function Page() {
                     disabled={submitting}
                     type='email'
                     id='emailInput'
+                    autoFocus
                 />
                 <InputRow
                     label='Boatsname'
